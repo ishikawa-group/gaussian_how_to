@@ -1,4 +1,4 @@
-# materials_simulation
+# マテリアルズ・シミュレーション(TAC-MI): 分子系
 TAC-MIの授業
 
 ## 松下先生とのzoom(2023/Jun/26)でのメモ
