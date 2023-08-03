@@ -5,3 +5,5 @@
 * This is achirved, for example, changing the bond length of diatomic molecules.
 * In the diatomic molecule, the relatinoship between coordinate and energy is called the *potential energy curve*.
 * Geometry optimization is the procedure to find the energy minima in the potential energy curve.
+
+# Vibrational frequency analysis
