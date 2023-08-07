@@ -9,9 +9,9 @@
 water energy
 
 0 1
-O  -0.464   0.177   0.0	 
-H  -0.464   1.137   0.0	 
-H   0.441  -0.143   0.0
+O  -0.464   0.177   0.000
+H  -0.464   1.137   0.000
+H   0.441  -0.143   0.000
 ```
 * The input file has following structure
 
@@ -57,7 +57,7 @@ where ${\bf F}$ is the Fock matrix, ${\bf C}$ is the molecuar orbital (MO) coeff
 * The electron correlation is the energy contribution originating in the electron-electron repulsion, which cannot be covered by the self-consistent field method.
 * Several ways to recover the electron correlation is reported;
   * configuration interaction (CI)
-  * Moller-Plesett peturbation theory (MPn)
+  * Moller-Plesett peturbation theory, n-th order (MPn)
   * coupled cluster (CC)
 * Each method has the level of excited electron configuration, corresponding to the accuracy, like singles, doubles, triples, etc.
 * Among them, second-order Moller presset (MP2), MP3, MP4, or coupled cluster singles and doubles (CCSD), CCSD plus perturbative triples (CCSD(T)) are popular methods.
