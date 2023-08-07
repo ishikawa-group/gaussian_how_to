@@ -45,6 +45,23 @@ H   0.441  -0.143   0.0
   | CCSD    | Coupled cluster with singles and doubles |
   | B3LYP   | DFT with B3LYP functional                |
 
+* In Hatree-Fock or DFT calculation, self-consisten field (SCF) problem is used, i.e. following the Hartree-Fock-Roothaan problem is solved.
+$$
+{\bf FC} = {\bf SC\epsilon}
+$$
+where ${\bf F}$ is the Fock matrix, ${\bf C}$ is the molecuar orbital (MO) coefficient matrix, ${\bf S}$ is the overlap matrix, and $\epsilon$ is the orbital energy matrix.
+* ${\bf F}$ and ${\bf S}$ is given before solving the above eigenvalue problem, while ${\bf C}$ and $\epsilon$ is calculated and these makes the MOs.
+
+### Electron correlatin
+* The Hatree-Fock method lacks the energy component, called *electron correlation energy*.
+* The electron correlation is the energy contribution originating in the electron-electron repulsion, which cannot be covered by the self-consistent field method.
+* Several ways to recover the electron correlation is reported;
+  * configuration interaction (CI)
+  * Moller-Plesett peturbation theory (MPn)
+  * coupled cluster (CC)
+* Each method has the level of excited electron configuration, corresponding to the accuracy, like singles, doubles, triples, etc.
+* Among them, second-order Moller presset (MP2), MP3, MP4, or coupled cluster singles and doubles (CCSD), CCSD plus perturbative triples (CCSD(T)) are popular methods.
+
 ## Basis set
 * Then, one should specify the basis set. In Gaussian, all the basis set is Gaussian-type orbitals (GTOs). The GTOs are used in assembled manner, to make "sharp" function like to Slater-basis function $\exp(–\alpha r)$.
 * For this, several GTOs are summed into one GTO function sets. This process is called *contraction* and summed GTO is called *contracted GTO*. The uncontracted GTO is called *primitive GTO*.
@@ -57,7 +74,19 @@ H   0.441  -0.143   0.0
 
 ### Polarization and diffuse functions
 * Polarization function
+* Increasing the flexibility of the basis set, by adding the *function with higher angular momentum*.
+* For example in H atom, the valence electrion is 1s so p function is not necessary.
+* But adding this will enable the flexible description of the wavefunction.
+* For C atom, d function is added as the polarization function.
+* In Gaussian, the polrization function is represented by "*", e.g. 6-31G -> 6-31G*.
+
 * Diffuse function
+* Functions with larger exponent (thus spacially more spreaded) is added as diffuse function.
+* These functions are sometimes necessary, for example in anions.
+* In Gaussin, the diffuse function is represented by "+", e.g. 6-31G -> 6-31+G.
+
+### Reference
+* The details of the basis set can be found the Gaussian website: https://gaussian.com/basissets/
 
 ## Speficication in route section
 * The computational method and basis set should be specificed at the route section.
@@ -66,6 +95,14 @@ H   0.441  -0.143   0.0
 ## Geometry of the molecule
 * One can use GaussView to make the molecule.
 * The generated file can be directly used for the Gausssian, or you can modify some of them if you like.
+
+## Link-0 command
+* In the input file, you can specify the *number of CPUs*, *amount of memory*, and the *name of the checkpoint file*.
+* Checkpoint file (.chk) is the intermediate file having the computational results. Sometimes you need to have this file for visualization or restarting the calculation.
+* Checkpoint file (binary) can be converged to *formatted checkpoint file (.fchk)* (text file) by linux command `formchk XXX.chk XXX.fchk`.
+* Usually, there is a default setting for the number of the CPUs and amount memory.
+
+---
 
 ## Output files
 * In energy calculation, the calculated energy is the most important information in the output file.
