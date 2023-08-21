@@ -52,8 +52,8 @@ $$
 where ${\bf F}$ is the Fock matrix, ${\bf C}$ is the molecuar orbital (MO) coefficient matrix, ${\bf S}$ is the overlap matrix, and $\epsilon$ is the orbital energy matrix.
 * ${\bf F}$ and ${\bf S}$ is given before solving the above eigenvalue problem, while ${\bf C}$ and $\epsilon$ is calculated and these makes the MOs.
 
-### Electron correlatin
-* The Hatree-Fock method lacks the energy component, called *electron correlation energy*.
+### Electron correlation
+* The Hatree-Fock method lacks the energy component, which is called *electron correlation energy*.
 * The electron correlation is the energy contribution originating in the electron-electron repulsion, which cannot be covered by the self-consistent field method.
 * Several ways to recover the electron correlation is reported;
   * configuration interaction (CI)
