@@ -95,6 +95,6 @@ Sum of electronic and thermal Free Energies=-527.463147     # G = H - TS
 ---
 
 ## Exercises
-1. asdf
-2. asdf
-3. asdf
+1. Do a geometry optimization of water molecule with B3LYP/6-31G level.
+2. Do a frequency analysis of water molecule, at above-optimized structure.
+3. Do a geometry optimization of water dimer with B3LYP/6-31G level. Try to start from several initial geometries.
