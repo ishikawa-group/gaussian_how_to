@@ -63,8 +63,13 @@ where ${\bf F}$ is the Fock matrix, ${\bf C}$ is the molecuar orbital (MO) coeff
 * Among them, second-order Moller presset (MP2), MP3, MP4, or coupled cluster singles and doubles (CCSD), CCSD plus perturbative triples (CCSD(T)) are popular methods.
 
 ## Basis set
-* Then, one should specify the basis set. In Gaussian, all the basis set is Gaussian-type orbitals (GTOs). The GTOs are used in assembled manner, to make "sharp" function like to Slater-basis function $\exp(–\alpha r)$.
+* To solve the Schrodinger equation for molecules, we need to have their wavefunction. Because the solution of the Schrodinger equation is unavailable for molecules, we need some approximation.
+* A good starting point to approximate the molecular wavefunction is to use the known answer, such as the hydrogen atom case.
+* The exact solution for the Schrodinger equation of hydrogen atom is the exponentially decaying function w.r.t distance from a nucleus $r$, or $exp(-\alpha r)$. This is called the *Slater-type orbital (STO)*.
+* Unfortunately, using STO for quantum chemistry calculation face some difficulty in evaluating their integrals. However, a similar *Gaussian-type orbital (GTO)* $exp(-\alpha r^2)$ removes this difficulty. For this reason, all the implemented basis set is absed on GTO (because it is *Gaussian*)
+* The GTOs are used in assembled manner, to make "sharp" function like to Slater-basis function $\exp(–\alpha r)$.
 * For this, several GTOs are summed into one GTO function sets. This process is called *contraction* and summed GTO is called *contracted GTO*. The uncontracted GTO is called *primitive GTO*.
+* The simplest basis set category is called *STO-NG*, where $N$ is the number of Gaussian function to mimic the STO.
 * Major basis sets are like *6-31G* basis set, which means six GTOs to represent the inner shell of the atom, and three and one basis sets for the outer (valence) shell of the atom.
 * For example, the inner shell of the carbon atom (C) is the 1s shell, and the valence shell is the 2s and 2s shells. The inner shell is said to be "harder", meaning that the wave function does not change considerably by the environment (such as neighboring atoms). On the other hand, the valence shell is "softer" than the inner shell.
 * The chemical bond is always formed by electrons in the valence shell (called *valence electrons*). In the C atom, valence electrons are 2s and 2p electrons.
@@ -80,10 +85,27 @@ where ${\bf F}$ is the Fock matrix, ${\bf C}$ is the molecuar orbital (MO) coeff
 * For C atom, d function is added as the polarization function.
 * In Gaussian, the polrization function is represented by "*", e.g. 6-31G -> 6-31G*.
 
-* Diffuse function
+### Diffuse function
 * Functions with larger exponent (thus spacially more spreaded) is added as diffuse function.
 * These functions are sometimes necessary, for example in anions.
 * In Gaussin, the diffuse function is represented by "+", e.g. 6-31G -> 6-31+G.
+
+### cc-pVXZ
+* Another category of basis set often used is *correlation consistent basis set (cc-pVXZ) series*. Here X can be D(double), T(triple), Q(quadruple) or higher.
+* As its name indicates, the parametrization of this basis set is intended to cover the electron correlation effectively.
+* This basis set automatically includes the polarization function so no need to add.
+* To add the diffuse function, use *aug-cc-pVXZ* (aug means augumentation).
+
+### Summary
+* To summarize the popular basis set levels:
+
+| quality     | basis set                |
+| ----------- | ------------------------ |
+| low         | STO-3G, 6-31G            |
+| medium      | 6-31G*                   |
+| medium-high | 6-31+G*                  |
+| high        | 6-311G**, cc-pVDZ        |
+| very high   | aug-cc-pVXZ (X = T or Q) |
 
 ### Reference
 * The details of the basis set can be found the Gaussian website: https://gaussian.com/basissets/
