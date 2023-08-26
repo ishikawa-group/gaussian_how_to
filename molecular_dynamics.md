@@ -4,7 +4,7 @@
 
 ## Computation
 * Running AIMD with Gaussian is not impossible but its function is limited. *So I do not recommend use Gaussian for AIMD*.
-* Here we will use *NWChem* instead.
+* Here we will use *Atomic simulation environment (ASE)* and call Gaussian from it.
 
 ---
 

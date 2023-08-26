@@ -12,7 +12,10 @@ water energy
 O  -0.464   0.177   0.000
 H  -0.464   1.137   0.000
 H   0.441  -0.143   0.000
+
 ```
+* The blanck line in the last is needed?
+
 * The input file has following structure
 
 1. Route section
@@ -110,7 +113,7 @@ where ${\bf F}$ is the Fock matrix, ${\bf C}$ is the molecuar orbital (MO) coeff
 ### Reference
 * The details of the basis set can be found the Gaussian website: https://gaussian.com/basissets/
 
-## Speficication in route section
+## Energy calculation: speficication in route section
 * The computational method and basis set should be specificed at the route section.
 * It can be simply specified as `method/basis set`. For example, whem perfoming the Hatree-Fock calculation with 6-31G basis set, the route section should be `# HF/6-31G`.
 
@@ -123,6 +126,27 @@ where ${\bf F}$ is the Fock matrix, ${\bf C}$ is the molecuar orbital (MO) coeff
 * Checkpoint file (.chk) is the intermediate file having the computational results. Sometimes you need to have this file for visualization or restarting the calculation.
 * Checkpoint file (binary) can be converged to *formatted checkpoint file (.fchk)* (text file) by linux command `formchk XXX.chk XXX.fchk`.
 * Usually, there is a default setting for the number of the CPUs and amount memory.
+
+### Element-wise specification of basis set
+* You can specify the different basis set for different elements. To do, you should put `gen` keyword in the route section.
+```
+# B3LYP/Gen Opt Test
+     
+HF/6-31G(*) Opt
+
+0 1
+O  -0.464   0.177   0.000
+H  -0.464   1.137   0.000
+H   0.441  -0.143   0.000
+    
+O 0
+6-31G(d)
+****
+H 0
+6-31G
+****
+
+```
 
 ---
 
