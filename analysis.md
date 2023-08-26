@@ -20,6 +20,16 @@
 ```
 pop=full
 ```
+* The output file gives the following section showing the Mulliken charge:
+```
+Mulliken atomic charges:
+           1
+ 1  O  -0.330657
+ 2  H   0.165329
+ 3  H   0.165329
+ Sum of Mulliken charges= 0.00000
+```
+* Or you can see them in GaussView.
 
 2. NPA
 ```
@@ -32,5 +42,5 @@ water
 
 $nbo bndidx $end
 
-``````
-* The values can be seen by GaussView.
+```
+* NPA charges can be seen in the `Summary of Natural Population Analysis:` section in the output, or can be seen by GaussView.
