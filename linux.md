@@ -7,12 +7,13 @@
 * The usage of TSUBAME is introduced later. First, we will look into the basic linux commands.
 
 ## basic linux commands
-* `cd`: to change the current directory, `cd target_dir`. Note that `target_dir` should be a directory, not a file.
-* `ls`: to list the files and directories in the current directory, you should `ls`.
-* `cp`: to copy a file, you should `cp from_file to_file`.
-* `pwd`: to display the current directory, type `pwd`.
-* `less`: to see the contents of file. For files more than one page, place *space* key to see further. Type `q` to quit. If you type `shift + f`, it waits the reloading the file. This mode can be quited by `ctrl + c`.
+* `cd`: To change the current directory, `cd target_dir`. Note that `target_dir` should be a directory, not a file.
+* `ls`: To list the files and directories in the current directory, you should `ls`.
+* `cp`: To copy a file, you should `cp from_file to_file`.
+* `pwd`: To display the current directory, type `pwd`.
+* `less`: To see the contents of file. For files more than one page, place *space* key to see further. Type `q` to quit. If you type `shift + f`, it waits the reloading the file. This mode can be quited by `ctrl + c`.
 * `grep`: To extract a line with some keyword, type `grep "keyword" filename`.
+* `mkdir`: To make a new directory, type `mkdir new_dir`.
 
 ## editor
 * There are several editors in linux. Two editors are popular, *vim* and *emacs*.
