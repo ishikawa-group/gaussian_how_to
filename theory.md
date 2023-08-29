@@ -12,15 +12,13 @@
 * The Hartree product obeys the Pauli' exclusion principle only to some extent; in the Hatree product wave function, each electronic state is occupied by one electron. However, it does not take into account the anti-symmetry character of the wave function, which is also required by the Pauli principle. Mathemtatically, this requres that the sign of $\Psi$ changes when two electrons are exchanged.
 * The simplest ansatz obeying the anti-symmetry requirement is to replace the product wave function in the form of a detarminant. This is called a **Slater determinant**.
 * The Slater determinant is constructed from the single-particle wave functions by
-```math
-\Psi({\bf r_1, r_2}\cdots {\bf r_N}) 
+$$ \Psi({\bf r_1, r_2}\cdots {\bf r_N}) 
 = \frac{1}{\sqrt{N!}}
 \begin{vmatrix}
 \psi_1({\bf r_1}) & \cdots & \psi_1({\bf r_N}) \\
 \vdots            & \ddots & \vdots \\
 \psi_N({\bf r_1}) & \cdots & \psi_N({\bf r_N}) \\
-\end{vmatrix}
-```
+\end{vmatrix} $$
 * Then the expectation value of the total energy becomes
 $$
 \begin{split}
