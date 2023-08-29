@@ -34,7 +34,7 @@
 \end{split}
 ```
 
-* The last term $V_{nuc-nuc}$ is the nuclar-nuclear repulsion term, and the second last term $is called **exchange repulsion term**.
+* The last term $V_{nuc-nuc}$ is the nuclar-nuclear repulsion term, and the second last term is called **exchange repulsion term**.
 * If we minimize the above expression with respect to the $\psi_i^*$ under the constraint of normalization, we have **Hartree-Fock equation**.
 ```math
 \begin{split}
