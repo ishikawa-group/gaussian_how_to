@@ -188,3 +188,41 @@ $$
 where $A$ is the pre-exponential factor and $R$ is the gas constant.
 * $A$ is less dependent to molecular species, but $E_a$ is highly dependent.
 * Therefore obtaining the transition state structure is critically important topic in the chemical reaction.
+
+---
+
+## Thermodynamics
+* The important thermodynamics quantities such as enthalpy, entropy, Gibbs free energy has contributions from translational, electronic, rotational, and vibrational motions of molecules.
+* To calculate them, the partition function $q(V,T)$ is needed.
+* The partition function from any component can be used to determine the entropy contribution $S$ from that component, using the relation
+$$
+S = R + R \ln q + RT \left(\frac{\partial \ln q}{\partial T}\right)_V
+$$
+* The internal thermal energy $E$ can also be obtained from the partition function as 
+$$
+E = RT^2\left(\frac{\partial \ln q}{\partial T}\right)_V
+$$
+* The energy can be used to calculate the heat capacity
+$$
+C_V = \left(\frac{\partial E}{\partial T}\right)_{N,V}
+$$
+
+---
+
+## Partition functions
+* The translation partition function is
+$$
+q_{\rm trans} = \left(\frac{2\pi m k_B T}{h^2}\right)^{3/2}V
+$$
+* For the general case for a non-linear polyatomic molecule, the rotational partition function is
+$$
+q_{\rm rot} = \frac{\pi^{1/2}}{\sigma_{\rm rot}}\left[ \frac{T^{3/2}}{\Theta_{\rm rot,x}^{1/2}\Theta_{\rm rot,y}^{1/2}\Theta_{\rm rot,z}^{1/2}} \right]
+$$
+* The vibrational paritition funciton (for mode i) is
+$$
+q_{\rm{vib},i} = \frac{\exp(-\Theta_i/2T)}{1-\exp(-\Theta_i/T)}
+$$
+and the overall vibrational partition function is 
+$$
+q_{\rm{vib},i} = \prod_i \frac{\exp(-\Theta_i/2T)}{1-\exp(-\Theta_i/T)}
+$$
