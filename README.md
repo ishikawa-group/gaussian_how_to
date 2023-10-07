@@ -1,21 +1,15 @@
-# マテリアルズ・シミュレーション(TAC-MI): 分子系
-* TAC-MIの授業@2023-3Q
+# Materials Simulation (TAC-MI): Molecular course
+* TAC-MI lecture at Tokyo-Tech (2023 Oct. and Nov.)
 
-## 講義予定
-1回目(10/6): 材料計算概論 & TSUBAME環境設定 & 計算コマンドの習得
-  * 分⼦系と周期系の材料計算の概要を説明できる。TSUBAMEの環境設定が⾏えて、Unixコマンドが使える。
+## Lecture plans
+1st day(10/6): Introduction and Linux basics
 
-2回目(10/20): 量⼦化学計算入門
-  * 量⼦化学計算の概要を説明できる
+2nd day(10/20): Introduction to quantum chemistry
 
-3回目(10/31). 分子構造の構築と入力データの作成
-  * 量子化学計算の入力データを作成できる
+3rd day(10/31): Building input for energy calculation with Gaussian
 
-4回目(11/10). 構造最適化と振動解析
-  * 構造最適化と振動解析が行える
+4th day(11/10): Geometry optimization and frequency analysis
 
-5回目(11/17). 遷移状態探索
-  * 遷移状態探索を行い、固有反応座標の計算ができる
+5th day(11/17): Transition state search
 
-6回目(11/24). 第一原理分子動力学計算
-  * 第一原理分子動力学計算を動かすことができる
+6th day(11/24): Ab initio molecular dynamics and excited state calculation
