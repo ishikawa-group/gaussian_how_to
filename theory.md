@@ -2,28 +2,21 @@
 marp: true
 math: mathjax
 ---
+<!-- headingDivider: 2 -->
 
 ## Why quantum chemistry?
 * The behavior of the particles is governed by the equation of motion, and its classical mechanical version is known as the Newton's law.
 * The proper description of atoms, molecules, and electrons is given by the laws of quantum mechanics. For this reason, we need to consider the **Schrödinger equation**, which is a quantum-mechanical equation of motion.
 * If the solutions of the Schrodinger equations are generated without reference to experimental data, the methods are usually called "ab initio" (latin: "from the beginning") or "first principle".
 
----
-
 ## Schrodinger equation
 * SE is
 
----
-
 ## Hatree-product
-
----
 
 ## Hartree-Fock method
 * The Hartree product obeys the Pauli' exclusion principle only to some extent; in the Hatree product wave function, each electronic state is occupied by one electron. However, it does not take into account the anti-symmetry character of the wave function.
 * Mathemtatically, this requres that the sign of $\Psi$ changes when two electrons are exchanged.
-
----
 
 ## Slater determinant
 * The requirement is overcome by using a detarminant. This is called a **Slater determinant**.
@@ -39,7 +32,7 @@ $$
 \end{vmatrix}
 $$
 
----
+## 
 
 * Then the expectation value of the total energy becomes
 $$
@@ -54,10 +47,12 @@ $$
 \end{split}
 $$
 
----
+##
 
 * The last term $V_{nuc-nuc}$ is the nuclar-nuclear repulsion term, and the second last term is called **exchange repulsion term**.
-* If we minimize the above expression with respect to the $\psi_i^*$ under the constraint of normalization, we have **Hartree-Fock equation**.
+* If we minimize the above expression with respect to the $\psi_i^*$ under the constraint of normalization.
+* Lagrange constrained minimization
+* Finally, we have **Hartree-Fock equation**.
 $$
 \begin{split}
 &\left[ -\frac{1}{2}\nabla^2 + v_{ext}({\bf r}) + v_H({\bf r}) \right] \psi_i({\bf r}) \\
@@ -67,8 +62,6 @@ $$
 
 * Explain terms.
 
----
-
 ## Electron correlation
 * The Hartree-Fock method generates solutions to the Schrodinger equation where the real electron-electron interaction is replaced by an average interaction.
 * In a sufficiently large basis set, the HF wave function accounts for ~99% of the total energy.
@@ -76,15 +69,11 @@ $$
 * The difference in energy between the HF and the lowest possible energy in the given basis set is called the **electron correlation energy**.
 * As the HF solution usually gives ~99% of the correct answer, electron correlation methods normally use the HF wave function as a starting point for improvements.
 
----
-
 ## Density Functional Theory
 * A *function* is a prescription for producing a number from a set of *variables*.
 * A *functional* is a prescription for producing a number from a *function*, which in turn depends on variables.
 * A wave function and the electron density are thus *functions*, while the energy depending on a wave function or an electron density is a *functional*.
 * We will denote a function depending on a set of variables ${\bf x}$ with $f({\bf x})$, while a functional depending on a function $f$ is denoted as $F[f]$.
-
----
 
 ## Orbital-free DFT
 * The electronic energy functional of electron density $\rho$ can be divided into three parts
@@ -98,7 +87,7 @@ E_{ne}[\rho] = -\sum_i^{N_{nuc}}\int\frac{Z_a(R_a)\rho({\bf r})}{|{\bf R}_a - {\
 J[\rho] = \frac{1}{2}\int\int\frac{\rho({\bf r})\rho({\bf r'})}{|{\bf r} - {\bf r'}|}d{\bf r}d{\bf r'}
 $$
 
----
+##
 
 * Here, the factor of 1/2 in $J[\rho]$ allows the integration to be done over all space fo both ${\bf r}$ and ${\bf r'}$ variables. Unlike these energy components, exchange part $K[\rho]$ can only be interpreted by the quantum mechanics.
 * Early attempts of deducing functionals for the kinetic and exchange energies considered a uniform electrons gas where it may be shown that $T[\rho]$ and $K[\rho]$ are given by Thomas, Fermi, and Dirac as
@@ -111,8 +100,6 @@ $$
 * Since $T[\rho]$ and $K[\rho]$ functionals are depending directly on the electron density, these methods are called *orbital-free DFT*, as opposed to the Kohn-Sham theory discussed in the next section.
 * Unfortunately, the accuracy of the orbital-free DFT is too low to be of general use.
 
----
-
 ## Kohn-Sham theory
 * The main drawback in the orbital-free DFT is the poor representation of the kinetic energy.
 * The idea in the Kohn-Sham formalism is to split the kinetic energy functional into two parts, one which can be calculated exactly, and a small correction term.
@@ -123,7 +110,7 @@ $$
 
 * The external potential operator ${\bf V}_{ext}$ is equal to ${\bf V}_{ee}$ for $\lambda = 1$, but for intermediate $\lambda$ value it is assumed that ${\bf V}_{ext}(\lambda)$ is adjusted such that the same density is obtained for $\lambda = 1$ (the real system), for $\lambda = 0$.
 
----
+##
 
 * For the $\lambda = 0$ case, the electrons are non-interacting, and the exact solution to the Schrodinger equation is given as a Slater determinant.
 * The exact kinetic energy functional is
@@ -138,15 +125,11 @@ $$
 E_{DFT}[\rho] = T_{KS}[\rho] + E_{ne}[\rho] + J[\rho] + E_{XC}[\rho]
 $$
 
----
-
 ## Gradient methods and molecular property (from Atkins)
 * Once the electronic energy is obtained by solving the electronic Schrodinger equation, a number of molecular properties, perhaps the most important being the equilibrium molecular geometry, can be determined.
 * The calculation of molecular or crystal structures is a variable supplement to experimental data in areas of structural chemistry such as X-ray crystallography, electron diffreaction, and microwave spectroscopy.
 * Calculation of derivatives of the potential energy with respect to nuclar coordinates is crucial to the efficient determination of equilibrium structures.
 * The derivatives can be computed numerically by calculating the potential energy at many geometries and determining the chnge in energy as each nuclear coordiate is varied.
-
----
 
 ## Energy derivatives
 * For a diatomic molecule, the molecular potential energy $E$ depends only on the internuclar distance $R$; therefore, to find the potential minimum (or in general the energy stationary point) we need to locate a zero in $dE/dR$.
@@ -157,8 +140,6 @@ f_i = -\frac{\partial E}{\partial q_i} = 0 \ \text{(for all i)}
 $$
 * Therefore, in principle, the equilibrium geometry can be found by computing all the forces at a given molecular geometry and seeing if they vanish.
 
----
-
 ## Hessian
 * A zero gradient characterizes a stationary point on the surface, but does not tell whether it is minima, maxima, or saddle points.
 * To distinguish the types of stationary points, it is necessary to consider the second derivatives of the energy with respect to the nuclar coordinates.
@@ -166,15 +147,11 @@ $$
 * A maximum (minimum) of a multi-dimensional potential energy surface is characterized by the eigenvalues of the Hessian all being positive (negative).
 * A transition state (a first-order saddle point) correspond to one negative eigenvalue and all the rest positive.
 
----
-
 ## Transition state
 * The transition state (TS) is a point on the PES connecting the two energy minima.
 * A clear example of this is that the bond dissociation or formation process (Fig.X).
 * The minimum at right corresponds to the state that has the O-H bond in this example, while the left minimum corresponds to the state with N-H bond.
 * There is a saddle point between them, and the activation energy ($E_a$) can be measured by the energy difference between minima and the saddle point.
-
----
 
 ## Activation energy 
 * When wa have the $E_a$, we can calculate the rate constant of the chemical reaction by Arrhenius equation as
@@ -185,40 +162,31 @@ where $A$ is the pre-exponential factor and $R$ is the gas constant.
 * $A$ is less dependent to molecular species, but $E_a$ is highly dependent.
 * Therefore obtaining the transition state structure is critically important topic in the chemical reaction.
 
----
-
 ## Thermodynamics
 * The important thermodynamics quantities such as enthalpy, entropy, Gibbs free energy has contributions from translational, electronic, rotational, and vibrational motions of molecules.
 * To calculate them, the partition function $q(V,T)$ is needed.
-* The partition function from any component can be used to determine the entropy contribution $S$ from that component, using the relation
+* From $q(V,T)$ to these quantities, the entropy $S$, internal energy $E$, and heat capacity $C_V$ is obtained as
 $$
-S = R + R \ln q + RT \left(\frac{\partial \ln q}{\partial T}\right)_V
+\begin{align*}
+S   &= R + R \ln q + RT \left(\frac{\partial \ln q}{\partial T}\right)_V & \\
+E   &= RT^2\left(\frac{\partial \ln q}{\partial T}\right)_V & \\
+C_V &= \left(\frac{\partial E}{\partial T}\right)_{N,V} &
+\end{align*}
 $$
-* The internal thermal energy $E$ can also be obtained from the partition function as 
-$$
-E = RT^2\left(\frac{\partial \ln q}{\partial T}\right)_V
-$$
-* The energy can be used to calculate the heat capacity
-$$
-C_V = \left(\frac{\partial E}{\partial T}\right)_{N,V}
-$$
-
----
 
 ## Partition functions
 * The translation partition function is
 $$
 q_{\rm trans} = \left(\frac{2\pi m k_B T}{h^2}\right)^{3/2}V
 $$
-* For the general case for a non-linear polyatomic molecule, the rotational partition function is
+* For the non-linear polyatomic molecule, the rotational partition function is
 $$
 q_{\rm rot} = \frac{\pi^{1/2}}{\sigma_{\rm rot}}\left[ \frac{T^{3/2}}{\Theta_{\rm rot,x}^{1/2}\Theta_{\rm rot,y}^{1/2}\Theta_{\rm rot,z}^{1/2}} \right]
 $$
-* The vibrational paritition funciton (for mode i) is
+* The vibrational paritition funciton (for mode $i$) and overall one is
 $$
-q_{\rm{vib},i} = \frac{\exp(-\Theta_i/2T)}{1-\exp(-\Theta_i/T)}
-$$
-and the overall vibrational partition function is 
-$$
-q_{\rm{vib},i} = \prod_i \frac{\exp(-\Theta_i/2T)}{1-\exp(-\Theta_i/T)}
+\begin{align*}
+q_{\rm{vib},i} &= \frac{\exp(-\Theta_i/2T)}{1-\exp(-\Theta_i/T)} & \\
+q_{\rm{vib}} &= \prod_i \frac{\exp(-\Theta_i/2T)}{1-\exp(-\Theta_i/T)} &
+\end{align*}
 $$

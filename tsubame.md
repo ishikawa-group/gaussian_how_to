@@ -1,1 +1,72 @@
-* see https://github.com/ishikawa-group/vasp_how_to/blob/main/english/tsubame.md
+---
+marp: true
+math: mathjax
+---
+<!-- headingDivider: 2 -->
+
+## TSUBAME
+* In the following, we assume as the user is the Tokyo-tech student or employee.
+
+## Making account
+1. Login to the Tokyo-tech portal, and click "TSUBAME portal"
+2. Fill the required fields
+3. E-mail comes in moment, and the click the URL in the mail
+4. Confirm the account name
+
+## ssh key generation
+1. Open the terminal in mac/windows-wsl and type `ssh-keygen`
+2. Specify the name of pubilc key
+3. Copy the texts in the above public key file
+4. Back to the TSUBAME portal, and paste the copied text into the field of "SSH public key registration"
+5. Click "add"
+6. Go back to terminal, and you can login like `ssh [your_account_name]@login.t3.gsic.titech.ac.jp -i [your_private_keyfile]`
+7. Setup the ssh configure file to make login easier. An example of minimal configuration is,
+    ```bash
+    Host tsubame
+    HostName login.t3.gsic.titech.ac.jp
+    User your_name
+    IdentityFile /Users/your_name/.ssh/id_rsa_tsubame
+    ```
+7. You can login TSUBAME by `ssh tsubame`.
+
+## Getting resources
+* You need to make a group to get computational resources.
+
+### Making group
+1. login to "TSUBAME-portal"
+2. click the making group, and fill the required fields
+3. you can manage the groups with "managing the group" -> "detail"
+
+### Payment procedure
+#### Registring purchase code
+1. you need the "purchase code" for paying the points
+2. click "managing the purchase code" --> "apply for the new purchase code"
+3. fill the required fields
+4. wait
+5. the purchase code will be issued, and then fill the budget information from "managing the group"
+
+#### Purchasing points
+1. login to the TSUBAME portal
+2. click "managing the group"
+3. select the beloging groups
+4. click "detail"
+5. purchasing points
+
+## Submitting jobs
+### Normal
+* You can exectue your calculation as *jobs* to the supercomputer.
+* Supercomputer queuing system takes care of your (and also others') jobs.
+* To registar your job, execute: `qsub -g [group_name] script.sh`
+* The `script.sh` file contains the procedure of your calculation.
+* If you don't specify the group name, the job will be a trial-run so it stops in 1 hour.
+
+### Using booked node
+* You can book the nodes via TSUBAME portal.
+* With booked nodes (AR_ID should be given), you can submit jobs by
+`qsub -g [group_name] -ar [AR_ID] script.sh`.
+
+## Confirming jobs
+* To confirm your job status, type: `qstat`.
+
+## Stopping jobs
+* To stop your jobs, type: `qdel [JOB_ID]`.
