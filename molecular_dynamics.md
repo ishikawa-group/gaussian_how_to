@@ -9,5 +9,4 @@
 ---
 
 ## Exercises
-1. asdf
-2. asdf
+1. to be uploaded
