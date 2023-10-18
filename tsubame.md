@@ -20,7 +20,7 @@ math: mathjax
 4. Copy the texts in the above public key file
 5. Back to the TSUBAME portal, and paste the copied text into the field of "SSH public key registration"
 6. Click "add"
-7. Go back to terminal, and you can login like `ssh [your_account_name]@login.t3.gsic.titech.ac.jp -i [your_private_key-file]`
+7. Go back to terminal, and you can login like `ssh [account_name]@login.t3.gsic.titech.ac.jp -i [private_key-file]`
 8. Setup the ssh configure file `~/.ssh/config` to make login easier. An example of minimal configuration is,
     ```bash
     Host tsubame
@@ -58,8 +58,21 @@ math: mathjax
 * You can execute your calculation as *jobs* to the supercomputer.
 * Supercomputer queuing system takes care of your (and also others') jobs.
 * To register your job, execute: `qsub -g [group_name] script.sh`
+    * If you don't specify the group name, the job will be a trial-run so it stops in 1 hour.
 * The `script.sh` file contains the procedure of your calculation.
-* If you don't specify the group name, the job will be a trial-run so it stops in 1 hour.
+* An example of `script.sh` for running Gaussian is (input file: `h2o.com`)
+    ```bash
+    #!/bin/bash
+    #$ -cwd
+    #$ -l f_node=1
+    #$ -l h_rt=00:10:00
+    #$ -V
+
+    . /etc/profile.d/modules.sh
+    module load gaussian16
+
+    g16 h2o.com
+    ```
 
 ### Using booked node
 * You can book the nodes via TSUBAME portal.
@@ -71,3 +84,4 @@ math: mathjax
 
 ## Stopping jobs
 * To stop your jobs, type: `qdel [JOB_ID]`.
+* To know the JOB_ID, do `qstat`.
