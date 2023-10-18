@@ -7,7 +7,7 @@
 * The energy difference of the reactant and product states is called the *reaction energy*.
 
 ## Computation
-* Basically, the TS optimization needs the forace constant (Hessian) matrix.
+* Basically, the TS optimization needs the force constant (Hessian) matrix.
 * `opt=TS` will do the TS optimization.
 * `calcFC`: Calculate the force constant before doing the TS calculation. Use like `opt(TS, calcFC)`
 * `readFC`: Read the pre-calculated force constant. Use like `opt(TS, readFC)`
@@ -46,7 +46,7 @@ Atom  AN    X     Y     Z     X     Y     Z     X     Y     Z
 
 ## Intrinsic reaction coordinate (IRC)
 * Is a calculated TS really connect the reactant and product states? To answer this question, you can perform the **intrinsic reaction coordinate (IRC)** analysis.
-* To do this calculation, you should have the fchk file of the vibrational frequnecy analysis at TS. Then, one should do *two* calculations with following route sections;
+* To do this calculation, you should have the fchk file of the vibrational frequency analysis at TS. Then, one should do *two* calculations with following route sections;
 ```
 #P RHF/6-31+G(d) 6D IRC=(READCARTESIANFC,FORWARD,MAXPOINTS=20,STEPSIZE=20)
  GEOM=CHECKPOINT GUESS=CHECKPOINT
@@ -65,8 +65,8 @@ reverse
 -1 1
 ...
 ```
-* These are IRC starding from TS to forward and reverse directions, respectively. Note that forward and reverse directions are somewhat arbitorary so does not correspond to reactant and product, respecitvely; *always check the geometry.*
-* IRC calculation can be also visualied with GaussView.
+* These are IRC starting from TS to forward and reverse directions, respectively. Note that forward and reverse directions are somewhat arbitrary so does not correspond to reactant and product, respectively; *always check the geometry.*
+* IRC calculation can be also visualized with GaussView.
 ---
 
 ## Exercises

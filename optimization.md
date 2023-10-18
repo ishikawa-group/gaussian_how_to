@@ -1,11 +1,11 @@
 # Geometry optimization
 ## Background
 * In this lecture, we will see how to do the geometry optimization with Gaussian.
-* Geometry here means the positions of nuclei in the molecule. The most stable positions of nuclei make the minimum of the total energy (electronic energy plus inter-nuclei repulsion) of the molecule. This is achirved, for example, changing the bond length of diatomic molecules (in the diatomic molecule, the relatinoship between coordinate and energy is called the *potential energy curve*).
+* Geometry here means the positions of nuclei in the molecule. The most stable positions of nuclei make the minimum of the total energy (electronic energy plus inter-nuclei repulsion) of the molecule. This is achieved, for example, changing the bond length of diatomic molecules (in the diatomic molecule, the relationship between coordinate and energy is called the *potential energy curve*).
 * Geometry optimization is the procedure to find the energy minima in the potential energy curve.
 
 ## Computation
-* To perform the geometry optimiztation, you simply put `opt` in the route section.
+* To perform the geometry optimization, you simply put `opt` in the route section.
 ```
 # HF/6-31G opt
 
@@ -18,8 +18,8 @@ H   0.441  -0.143   0.000
 ```
 
 ### Important parameters
-* `maxcycle`: Number of the maximum steps of the optimizaiton. Default is max(20, 2*number_of_optimizing_variables). Use like `opt(maxcycle=200)`
-* `readFC`: Read force constant obtained by frequency analysys. Usually accelerates the optimization. Use like `opt(readFC)`.
+* `maxcycle`: Number of the maximum steps of the optimization. Default is max(20, 2*number_of_optimizing_variables). Use like `opt(maxcycle=200)`
+* `readFC`: Read force constant obtained by frequency analysis. Usually accelerates the optimization. Use like `opt(readFC)`.
 * `calcFC`: Calculate force constant before optimization, and use it. Good convergence but costly. Use like `opt(calcFC)`.
 * optimization level: `loose`, `tight`, or `verytight`.
 * optimization algorithm: `gediis`, `newton`, `steep`. If you are going to locate the local minimum near the current geometry, use `newton` or `steep`.
@@ -29,7 +29,7 @@ H   0.441  -0.143   0.000
 * By clicking `Results` -> `Optimization`, you can see the geometry changes during the optimization.
 
 # Vibrational frequency analysis
-## Backgroud
+## Background
 *
 
 ## Computation
@@ -87,7 +87,7 @@ Sum of electronic and thermal Energies= -527.489751      # E = E0 + Evib + Erot 
 Sum of electronic and thermal Enthalpies=-527.488807     # H = E + R
 Sum of electronic and thermal Free Energies=-527.463147  # G = H - TS
 ```
-* The last line is the Gibbs free energy (in Hatree or a.u.).
+* The last line is the Gibbs free energy (in Hartree or a.u.).
 
 * In chemical reaction, not the absolute Gibbs energy but *the Gibbs energy difference ($\Delta G$) is important.
 * To calculate $\Delta G$, just take the difference of the Gibbs energies of two geometries.

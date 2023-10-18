@@ -15,19 +15,20 @@ math: mathjax
 
 ## ssh key generation
 1. Open the terminal in mac/windows-wsl and type `ssh-keygen`
-2. Specify the name of pubilc key
-3. Copy the texts in the above public key file
-4. Back to the TSUBAME portal, and paste the copied text into the field of "SSH public key registration"
-5. Click "add"
-6. Go back to terminal, and you can login like `ssh [your_account_name]@login.t3.gsic.titech.ac.jp -i [your_private_keyfile]`
-7. Setup the ssh configure file to make login easier. An example of minimal configuration is,
+2. Specify the name of public key
+3. Set your passphrase if you like
+4. Copy the texts in the above public key file
+5. Back to the TSUBAME portal, and paste the copied text into the field of "SSH public key registration"
+6. Click "add"
+7. Go back to terminal, and you can login like `ssh [your_account_name]@login.t3.gsic.titech.ac.jp -i [your_private_key-file]`
+8. Setup the ssh configure file `~/.ssh/config` to make login easier. An example of minimal configuration is,
     ```bash
     Host tsubame
-    HostName login.t3.gsic.titech.ac.jp
-    User your_name
-    IdentityFile /Users/your_name/.ssh/id_rsa_tsubame
+        HostName login.t3.gsic.titech.ac.jp
+        User your_name
+        IdentityFile /Users/your_name/.ssh/id_rsa_tsubame
     ```
-7. You can login TSUBAME by `ssh tsubame`.
+9. You can login TSUBAME by `ssh tsubame`.
 
 ## Getting resources
 * You need to make a group to get computational resources.
@@ -38,7 +39,7 @@ math: mathjax
 3. you can manage the groups with "managing the group" -> "detail"
 
 ### Payment procedure
-#### Registring purchase code
+#### Registering purchase code
 1. you need the "purchase code" for paying the points
 2. click "managing the purchase code" --> "apply for the new purchase code"
 3. fill the required fields
@@ -48,15 +49,15 @@ math: mathjax
 #### Purchasing points
 1. login to the TSUBAME portal
 2. click "managing the group"
-3. select the beloging groups
+3. select the belonging groups
 4. click "detail"
 5. purchasing points
 
 ## Submitting jobs
 ### Normal
-* You can exectue your calculation as *jobs* to the supercomputer.
+* You can execute your calculation as *jobs* to the supercomputer.
 * Supercomputer queuing system takes care of your (and also others') jobs.
-* To registar your job, execute: `qsub -g [group_name] script.sh`
+* To register your job, execute: `qsub -g [group_name] script.sh`
 * The `script.sh` file contains the procedure of your calculation.
 * If you don't specify the group name, the job will be a trial-run so it stops in 1 hour.
 
