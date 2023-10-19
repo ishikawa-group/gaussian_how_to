@@ -1,7 +1,10 @@
+<!--
 ---
 marp: true
 math: katex
 ---
+-->
+
 <!-- headingDivider: 2 -->
 
 ## Why quantum chemistry?
@@ -69,13 +72,9 @@ E_0 \le \frac{\braket{\Psi|\hat{H}|\Psi}}{\braket{\Psi|\Psi}}
 * So, the expectation value calculated by the wave function at your hand $\Psi$  will always be an upper bound for the true ground state energy. By improving $\ket{\Psi}$, you will have a lower expectation value and that is closer to the true ground state energy.
 
 ##
-* Since $V_{\rm nuc-el}$ is an effective external potential for an electron, we write it
+* Since $V_{\rm nuc-el}$ is an effective external potential for an electron, we write it as function of $r$ and also define the one-electron Hamiltonian $\hat{h}$ as
 ```math
-v_{\rm ext}({\bf r}) = -\sum_I \frac{Z_I}{|{\bf r} - {\bf R}_I|}
-```
-* And we define the one-electron Hamiltonian
-```math
-\hat{h}({\bf r}) = -\frac{\nabla^2}{2} + v_{\rm ext}({\bf r})
+\hat{v}_{\rm ext}({\bf r}) = -\sum_I \frac{Z_I}{|{\bf r} - {\bf R}_I|}, \hspace{2mm} \hat{h}({\bf r}) = -\frac{\nabla^2}{2} + \hat{v}_{\rm ext}({\bf r})
 ```
 * Then one can form the one-electron SE as
 ```math
@@ -129,24 +128,24 @@ with respect to the Hartree product. This becomes
 
 ##
 * The $\epsilon_i$ act as Lagrange multipliers ensuring the normalization of $\chi_i({\bf x})$. This leads to the so-called **Hartree equation** as
-$$
+```math
 \left[\hat{h} + \sum_{j=1}^N\int d{\bf x}'\chi_j^{*}({\bf x}')\chi_j({\bf x}')\frac{1}{|{\bf r}-{\bf r}'|}\right]\chi_i({\bf x}) = \epsilon_i\chi_i({\bf x})
-$$
+```
 * This shows that an effective one-electron SE is solved for an electron embedded in the electrostatic field of all electrons (including itself).
 
 ## Hartree potential
 * Using the electron density
-$$
+```math
 \rho({\bf r}) = \sum_{i=1}^N \psi_i^{*}({\bf r})\psi_i({\bf r})
-$$
+```
 the *Hartree potential* $\hat{v}_H$ can be defined as
-$$
+```math
 \hat{v}_H({\bf r}) = \int d{\bf r}' \frac{\rho({\bf r}')}{|{\bf r} - {\bf r}'|}
-$$
+```
 which corresponds to the electrostatic potential of all electrons. With $\hat{v}_H$, the Hartree equation can be written as
-$$
+```math
 \left[\hat{h} + \hat{v}_H \right]\chi_i({\bf x}) = \epsilon_i\chi_i({\bf x})
-$$
+```
 
 ## Self-consistent field
 * The Hartree equation have the form of one-electron SE. However, the solutions $\chi_i({\bf x})$ enter the effective one-particle Hamiltonian via $\hat{v}_H$.
@@ -160,7 +159,7 @@ $$
 
 ## Slater determinant
 * The anti-symmetric problem can be fixed by replacing the product of the one-electron wave function by the determinant of them. This is called a **Slater determinant**, and it has the form of
-$$
+```math
 \Psi({\bf x}_1, {\bf x}_2, \cdots {\bf x}_N) 
 = \frac{1}{\sqrt{N!}}
 \begin{vmatrix}
@@ -168,18 +167,18 @@ $$
 \vdots            & \ddots & \vdots \\
 \chi_N({\bf x}_1) & \cdots & \chi_N({\bf x}_N) \\
 \end{vmatrix}
-$$
+```
 * For example in two-electron case,
-$$
+```math
 \begin{align*}
 \Psi({\bf x}_1,{\bf x}_2) &= \chi_1({\bf x}_1)\chi_2({\bf x}_2) & &\text{(Hatree product)} \\
 \Psi({\bf x}_1,{\bf x}_2) &= \chi_1({\bf x}_1)\chi_2({\bf x}_2) - \chi_1({\bf x}_2)\chi_1({\bf x}_2) & &\text{(Slater determinant)}
 \end{align*}
-$$
+```
 
 ##
 * Then the expectation value of the Hamiltonian with the Slater determinant is
-$$
+```math
 \begin{split}
 \braket{\Psi|H|\Psi} 
 =& \sum_{i=1}^N\int d{\bf r} \psi_i^*({\bf r}) \hat{h} \psi_i({\bf r}) \\
@@ -189,37 +188,37 @@ $$
 \delta_{\omega_i, \omega_j}\psi_i^*({\bf r})\psi_i({\bf r'})\psi_j^*({\bf r'})\psi_j({\bf r}) \\
  &+ V_{\rm nuc-nuc}
 \end{split}
-$$
+```
 where Kronecker delta $\delta_{\omega_i, \omega_j}$ is coming from the integration in the spin variable.
 
 ##
 * Just like the Hartree equation, we minimize the expectation value with respect to $\psi^{*}$ under the constraint of normalization. This gives the **Hartree-Fock equation** as
-$$
+```math
 \begin{align*}
 \left[ \hat{h} + \hat{v}_H({\bf r}) \right] \psi_i({\bf r}) -\sum_{j \ne i}\int d{\bf r}' \frac{1}{|{\bf r} - {\bf r}'|}\psi_j^*({\bf r}')\psi_i({\bf r}')\psi_j({\bf r}) = \epsilon_i \psi_i({\bf r})
 \end{align*}
-$$
+```
 * The last term of the left-hand side corresponds to the *exchange interaction* of electrons, as it exchanges $\psi_i$ into $\psi_j$ when it applies to $\phi_i$. This term arises by replacing the Hartree product into the determinant, and has purely quantum-mechanical character (no classical-mechanics interpretation)
 * $\delta_{\omega_i, \omega_j}$ in this term means that the exchange interaction is only present among the electrons of same spin.
 * By using the *Fock operator* $\hat{f}$, the HF equation becomes
-$$
+```math
 \hat{f}({\bf x})\chi({\bf x}) = \epsilon_i \chi({\bf x})
-$$
+```
 
 ## Hartree-Fock-Roothaan equation
 * The HF equation is a very complicated integro-differential equation, so we expand $\chi_i$ with a suitable basis set $\tilde{\chi_i}$ as
-$$
+```math
 \chi_i({\bf x}) = \sum_{\mu=1}^K C_{\mu i}\tilde{\chi}_{\mu}({\bf x})
-$$
+```
 * Where $C_{\mu i}$ is the expansion coefficient. Lets' introduce the overlap and Fock integrals
-$$
+```math
 S_{\mu \nu} = \int d{\bf x} \tilde{\chi}_{\mu}({\bf x}) \tilde{\chi}_{\nu}({\bf x}), \ \  
 F_{\mu \nu} = \int d{\bf x} \tilde{\chi}_{\mu}({\bf x}) \hat{f}({\bf x}) \tilde{\chi}_{\nu}({\bf x})
-$$
+```
 * Then the HF equation becomes the **Hartree-Fock-Roothaan** equation
-$$
+```math
 \sum_{\nu}F_{\mu\nu}C_{\nu i} = \epsilon_i \sum_{\nu}S_{\mu\nu}C_{\nu i} \hspace{3mm} \text{or} \hspace{3mm} {\bf FC} = {\bf SC\epsilon}
-$$
+```
 * This is a general eigenvalue problem, and easily solved.
 * As ${\bf F}$ depends on ${\bf C}$, it should be solved by the SCF manner.
 
@@ -252,20 +251,20 @@ $$
     * the electron-electron repulsion energy functional $E_{ee}[\rho]$.
 * With reference to the Hartree-Fock theory, $E_{ee}[\rho]$ may be divided into Coulomb and exchange parts, $J[\rho]$ and $K[\rho]$.
 * Among these energy functionals, $E_{ne}[\rho]$ and $J[\rho]$ can be interpreted by the classical electrodynamics, 
-$$
+```math
 E_{ne}[\rho] = -\sum_i^{N_{nuc}}\int\frac{Z_a(R_a)\rho({\bf r})}{|{\bf R}_a - {\bf r}|}d{\bf r} \\
 J[\rho] = \frac{1}{2}\int\int\frac{\rho({\bf r})\rho({\bf r'})}{|{\bf r} - {\bf r'}|}d{\bf r}d{\bf r'}
-$$
+```
 
 ##
 
 * Here, the factor of 1/2 in $J[\rho]$ allows the integration to be done over all space fo both ${\bf r}$ and ${\bf r'}$ variables. Unlike these energy components, exchange part $K[\rho]$ can only be interpreted by the quantum mechanics.
 * Early attempts of deducing functionals for the kinetic and exchange energies considered a uniform electrons gas where it may be shown that $T[\rho]$ and $K[\rho]$ are given by Thomas, Fermi, and Dirac as
-$$
+```math
 T_{TF}[\rho] = C_F \int \rho^{5/3}({\bf r})d{\bf r} \\
 K_D[\rho] = -C_X \int \rho^{4/3}({\bf r})d{\bf r} \\
 C_F = \frac{3}{10}(3\pi^2)^{2/3}, \ C_X = \frac{3}{4}\left( \frac{3}{\pi} \right)^{1/3}
-$$
+```
 
 * Since $T[\rho]$ and $K[\rho]$ functionals are depending directly on the electron density, these methods are called *orbital-free DFT*, as opposed to the Kohn-Sham theory discussed in the next section.
 * Unfortunately, the accuracy of the orbital-free DFT is too low to be of general use.
@@ -274,9 +273,9 @@ $$
 * The main drawback in the orbital-free DFT is the poor representation of the kinetic energy.
 * The idea in the Kohn-Sham formalism is to split the kinetic energy functional into two parts, one which can be calculated exactly, and a small correction term.
 * Assume for the moment a Hamiltonian operator of the form with $0 \le \lambda \le 1$.
-$$
+```math
 H_{\lambda} = {\bf T} + {\bf V}_{ext}(\lambda) + \lambda {\bf V}_{ee}
-$$
+```
 
 * The external potential operator ${\bf V}_{ext}$ is equal to ${\bf V}_{ee}$ for $\lambda = 1$, but for intermediate $\lambda$ value it is assumed that ${\bf V}_{ext}(\lambda)$ is adjusted such that the same density is obtained for $\lambda = 1$ (the real system), for $\lambda = 0$.
 
@@ -284,16 +283,16 @@ $$
 
 * For the $\lambda = 0$ case, the electrons are non-interacting, and the exact solution to the Schrodinger equation is given as a Slater determinant.
 * The exact kinetic energy functional is
-$$
+```math
 T_{KS} = \sum_i^{N_{el}}\braket{\phi_i|-\frac{1}{2}\nabla^2|\phi_i}
-$$
+```
 
 * The $\lambda = 1$ corresponds to interacting electrons, and Eq.X is therefore only an approximation to the real kinetic energy.
 * The key to Kohn-Sham theory is to calculate the kinetic energy under the assumption of non-interacting electrons.
 * The remaining kinetic energy is absorbed into an exchange-correlation term, and a general DFT energy expression can be written as
-$$
+```math
 E_{DFT}[\rho] = T_{KS}[\rho] + E_{ne}[\rho] + J[\rho] + E_{XC}[\rho]
-$$
+```
 
 ## Gradient methods and molecular property
 * Once the electronic energy is obtained by solving the electronic Schrodinger equation, a number of molecular properties, perhaps the most important being the equilibrium molecular geometry, can be determined.
@@ -305,9 +304,9 @@ $$
 * For a diatomic molecule, the molecular potential energy $E$ depends only on the internuclear distance $R$; therefore, to find the potential minimum (or in general the energy stationary point) we need to locate a zero in $dE/dR$.
 * The search is more complicated for polyatomic molecules because the potential energy is a function of many nuclear coordinates, $q_i$.
 * At the equilibrium geometry, each of the forced $f_i$ exerted on a nucleus by electrons and other nuclei must vanish:
-$$
+```math
 f_i = -\frac{\partial E}{\partial q_i} = 0 \ \text{(for all i)}
-$$
+```
 * Therefore, in principle, the equilibrium geometry can be found by computing all the forces at a given molecular geometry and seeing if they vanish.
 
 ## Hessian
@@ -325,9 +324,9 @@ $$
 
 ## Activation energy 
 * When wa have the $E_a$, we can calculate the rate constant of the chemical reaction by Arrhenius equation as
-$$
+```math
 k = A\exp\left(-\frac{E_a}{RT}\right)
-$$
+```
 where $A$ is the pre-exponential factor and $R$ is the gas constant.
 * $A$ is less dependent to molecular species, but $E_a$ is highly dependent.
 * Therefore obtaining the transition state structure is critically important topic in the chemical reaction.
@@ -336,27 +335,27 @@ where $A$ is the pre-exponential factor and $R$ is the gas constant.
 * The important thermodynamics quantities such as enthalpy, entropy, Gibbs free energy has contributions from translational, electronic, rotational, and vibrational motions of molecules.
 * To calculate them, the partition function $q(V,T)$ is needed.
 * From $q(V,T)$ to these quantities, the entropy $S$, internal energy $E$, and heat capacity $C_V$ is obtained as
-$$
+```math
 \begin{align*}
 S   &= R + R \ln q + RT \left(\frac{\partial \ln q}{\partial T}\right)_V & \\
 E   &= RT^2\left(\frac{\partial \ln q}{\partial T}\right)_V & \\
 C_V &= \left(\frac{\partial E}{\partial T}\right)_{N,V} &
 \end{align*}
-$$
+```
 
 ## Partition functions
 * The translation partition function is
-$$
+```math
 q_{\rm trans} = \left(\frac{2\pi m k_B T}{h^2}\right)^{3/2}V
-$$
+```
 * For the non-linear polyatomic molecule, the rotational partition function is
-$$
+```math
 q_{\rm rot} = \frac{\pi^{1/2}}{\sigma_{\rm rot}}\left[ \frac{T^{3/2}}{\Theta_{\rm rot,x}^{1/2}\Theta_{\rm rot,y}^{1/2}\Theta_{\rm rot,z}^{1/2}} \right]
-$$
+```
 * The vibrational partition function (for mode $i$) and overall one is
-$$
+```math
 \begin{align*}
 q_{\rm{vib},i} &= \frac{\exp(-\Theta_i/2T)}{1-\exp(-\Theta_i/T)} & \\
 q_{\rm{vib}} &= \prod_i \frac{\exp(-\Theta_i/2T)}{1-\exp(-\Theta_i/T)} &
 \end{align*}
-$$
+```
