@@ -14,7 +14,7 @@ H  -0.464   1.137   0.000
 H   0.441  -0.143   0.000
 
 ```
-* The blanc line in the last is needed?
+* The blanc line in the last is needed (note: TWO blanc lines for Windows).
 
 * The input file has following structure
 

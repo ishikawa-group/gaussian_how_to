@@ -17,17 +17,20 @@ math: mathjax
 ## Windows
 * Install WSL2 (Windows service for linux ver.2); following is an example in Windows 10
     1. Open "Windows Power Shell" or "Terminal" as Administrator.
-    2. Type `wsl --install -d Ubuntu`.
-    3. After installation is done, open `Ubuntu` in Application.
+    2. Type `wsl --set-default-version 2` (for safe)
+    3. Type `wsl --install -d Ubuntu`.
+    4. After installation is done, open `Ubuntu` in Application.
 
-* When above doesn't work, check "Windows の機能の有効化、または無効化" and "Linux 用 Windows サブシステム", "仮想マシンプラットフォーム" is ON.
+* When above doesn't work, check "Windows の機能の有効化、または無効化", then "Linux 用 Windows サブシステム", "仮想マシンプラットフォーム" is ON.
 
+##
 * You can access Windows system from Ubuntu like: `cd` to Desktop by `cd /mnt/c/Users/your_name/Desktop/`.
 * It is useful to make symbolic link between Ubuntu and Windows like
     ```bash
     cd
     ln -s /mnt/c/Users/your_user_name/Desktop/ desktop
     ```
+* If some commands are unavailable (e.g. vi), install them by `sudo apt-get install vim`.
 
 ## ssh
 * To login the supercomputer from your environment, you need to use *ssh* so you have to set up it.
@@ -74,7 +77,14 @@ math: mathjax
 * There are several editors in linux. Two editors are popular, *vi* and *emacs*.
 * Here in this course we will use `vi`.
 * You can use these editors in the remote environment.
-* If you don't want to use vi/emacs, copy your target file to local PC and then use your favorite editor (like notepad), then send it back to remote environment.
+* If you don't want to use vi/emacs, copy your target file to local PC and then use your favorite editor, then send it back to remote environment.
+
+##
+* However, your editor should output the text file with Linux-compatible newline code.
+* Newline code depends on the OS (operating system).
+    * Linux and Mac (after Mac OS X): LF(Line Feed)
+    * Windows: CR（Carriage Return）+ LF.
+* So use VS Code, sakura editor, K2E, etc.
 
 ## vi
 * Minimal instruction of vi.
@@ -85,6 +95,7 @@ math: mathjax
     * you can put character only in the insert mode
     * move: `j`(down), `k`(up), `l`(right), `h`(left)
     * deleting character: `x` (no need to be insert mode)
+    * insert new line (then go to insert mode): `o`
     * save and exit: `:wq`
     * exit without saving: `:q!`
 
@@ -92,9 +103,6 @@ math: mathjax
 * After making a ssh-login environment, you can use `scp` (means secure copy) to send/take file from/to remove environment.
     * send: `scp your_file login_node:directory`
     * take: `scp login_node:directory your_local_directory`
-* If you have some trouble, probably because of newline code.
-* Linux uses LF（Line Feed) but Windows uses CR（Carriage Return）+ LF.
-* Try converting the newline code with your editor.
 
 ## submitting jobs
 * See "tsubame.md" for details.

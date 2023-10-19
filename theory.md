@@ -16,9 +16,9 @@ math: mathjax
     2. non-relativistic
     3. Born-Oppenheimer approximation
 * Under these approximations, the system of nuclei and electrons is described with a Hamiltonian below
-$$
+```math
 \hat{H} = T_{\rm nuc} + T_{\rm el} + V_{\rm nuc-nuc} + V_{\rm nuc-el} + V_{\rm el-el}
-$$
+```
 
 ##
 * These terms are written in the atomic unit as
