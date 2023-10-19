@@ -38,7 +38,7 @@ V_{\rm el-el} &= \frac{1}{2}\sum_{i \ne j}\frac{1}{|{\bf r}_i - {\bf r}_j|} &\te
 \hat{H}_{\rm el}(\left\{ {\bf R} \right\}) \Psi({\bf r}, \left\{ {\bf R} \right\}) = E_{\rm el}(\left\{ {\bf R} \right\}) \Psi({\bf r}, \left\{ {\bf R} \right\})
 ```
 * Here, one can make the direct functional relationship (or "mapping") between the nuclear coordinates $\{{\bf R}\}$ and the electronic energy $E_{\rm el}$.
-* It is quite informative to visualize $E_{\rm el}(\{{\bf R}\})$ as the function of {${\bf R}$}, which is often called **potential energy surface**.
+* It is quite informative to visualize $E_{\rm el}(\{{\bf R}\})$ as the function of $\{{\bf R}\}$, which is often called **potential energy surface**.
 
 ## Dirac's braket notation
 * It is convenient to use the Dirac's "bra-ket notation" for wave functions and multi-dimensional integrals in electronic structure theory in order to simplify the notation. The equivalences are defined as
@@ -49,7 +49,6 @@ V_{\rm el-el} &= \frac{1}{2}\sum_{i \ne j}\frac{1}{|{\bf r}_i - {\bf r}_j|} &\te
 \int{d{\bf r} \Psi^{*}\hat{H}\Psi } &= \braket{\Psi|\hat{H}|\Psi}
 \end{align*}
 ```
-
 * The ket $\ket{\Psi}$ denotes a wave function while the bra $\bra{\Psi}$ denotes a complex conjugate wave function $\Psi^{*}$. The combined braket denotes that the whole expression should be integrated over all coordinates.
 
 ## Hartree-Fock theory - Introduction
