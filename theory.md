@@ -18,20 +18,15 @@ math: mathjax
 * Under these approximations, the system of nuclei and electrons is described with a Hamiltonian below
 $$\hat{H} = T_{\rm nuc} + T_{\rm el} + V_{\rm nuc-nuc} + V_{\rm nuc-el} + V_{\rm el-el}$$
 
-**The Cauchy-Schwarz Inequality**
-$$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
-
 ##
 * These terms are written in the atomic unit as
-```math
-\begin{align*}
+$$\begin{align*}
 T_{\rm nuc} &= \sum_{I=1}^L\frac{\nabla_I^2}{2M_I} &\text{(kinetic energy of nuclei)} \\
 T_{\rm el}  &= \sum_{i=1}^N\frac{\nabla_i^2}{2} &\text{(kinetic energy of electrons)} \\
 V_{\rm nuc-nuc} &= \frac{1}{2}\sum_{I \ne J}\frac{Z_I Z_J}{|{\bf R}_I - {\bf R}_J|} &\text{(nuclei-nuclei repulsion)} \\
 V_{\rm nuc-el} &= -\sum_{i,I}\frac{Z_I}{|{\bf r}_i - {\bf R}_I|} &\text{(nuclei-electron attraction)} \\
 V_{\rm el-el} &= \frac{1}{2}\sum_{i \ne j}\frac{1}{|{\bf r}_i - {\bf r}_j|} &\text{(electron-electron repulsion)}
-\end{align*}
-```
+\end{align*}$$
 
 ##
 * In this case, the Schrödinger equation becomes
