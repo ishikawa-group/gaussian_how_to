@@ -17,6 +17,8 @@ math: mathjax
     3. Born-Oppenheimer approximation
 * Under these approximations, the system of nuclei and electrons is described with a Hamiltonian below
 $$ \hat{H} = T_{\rm nuc} + T_{\rm el} + V_{\rm nuc-nuc} + V_{\rm nuc-el} + V_{\rm el-el} $$
+**The Cauchy-Schwarz Inequality**
+$$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
 
 ##
 * These terms are written in the atomic unit as
