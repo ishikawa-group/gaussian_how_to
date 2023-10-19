@@ -16,13 +16,11 @@ math: mathjax
     2. non-relativistic
     3. Born-Oppenheimer approximation
 * Under these approximations, the system of nuclei and electrons is described with a Hamiltonian below
-```math
-\hat{H} = T_{\rm nuc} + T_{\rm el} + V_{\rm nuc-nuc} + V_{\rm nuc-el} + V_{\rm el-el}
-```
+$$ \hat{H} = T_{\rm nuc} + T_{\rm el} + V_{\rm nuc-nuc} + V_{\rm nuc-el} + V_{\rm el-el} $$
 
 ##
 * These terms are written in the atomic unit as
-$$
+```math
 \begin{align*}
 T_{\rm nuc} &= \sum_{I=1}^L\frac{\nabla_I^2}{2M_I} &\text{(kinetic energy of nuclei)} \\
 T_{\rm el}  &= \sum_{i=1}^N\frac{\nabla_i^2}{2} &\text{(kinetic energy of electrons)} \\
@@ -30,13 +28,13 @@ V_{\rm nuc-nuc} &= \frac{1}{2}\sum_{I \ne J}\frac{Z_I Z_J}{|{\bf R}_I - {\bf R}_
 V_{\rm nuc-el} &= -\sum_{i,I}\frac{Z_I}{|{\bf r}_i - {\bf R}_I|} &\text{(nuclei-electron attraction)} \\
 V_{\rm el-el} &= \frac{1}{2}\sum_{i \ne j}\frac{1}{|{\bf r}_i - {\bf r}_j|} &\text{(electron-electron repulsion)}
 \end{align*}
-$$
+```
 
 ##
 * In this case, the Schrödinger equation becomes
-$$
+```math
 \hat{H}_{\rm el}(\left\{ {\bf R} \right\}) \Psi({\bf r}, \left\{ {\bf R} \right\}) = E_{\rm el}(\left\{ {\bf R} \right\}) \Psi({\bf r}, \left\{ {\bf R} \right\})
-$$
+```
 * Here, one can make the direct functional relationship (or "mapping") between the nuclear coordinates $\{{\bf R}\}$ and the electronic energy $E_{\rm el}$.
 * It is quite informative to visualize $E_{\rm el}(\left\{ {\bf R} \right\})$ as the function of {${\bf R}$}, which is often called **potential energy surface**.
 
