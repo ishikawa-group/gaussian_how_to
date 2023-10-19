@@ -1,6 +1,6 @@
 ---
 marp: true
-math: mathjax
+math: katex
 ---
 <!-- headingDivider: 2 -->
 
@@ -16,17 +16,21 @@ math: mathjax
     2. non-relativistic
     3. Born-Oppenheimer approximation
 * Under these approximations, the system of nuclei and electrons is described with a Hamiltonian below
-$$\hat{H} = T_{\rm nuc} + T_{\rm el} + V_{\rm nuc-nuc} + V_{\rm nuc-el} + V_{\rm el-el}$$
+```math
+\hat{H} = T_{\rm nuc} + T_{\rm el} + V_{\rm nuc-nuc} + V_{\rm nuc-el} + V_{\rm el-el}$$
+```
 
 ##
 * These terms are written in the atomic unit as
-$$\begin{align*}
+```math
+\begin{align*}
 T_{\rm nuc} &= \sum_{I=1}^L\frac{\nabla_I^2}{2M_I} &\text{(kinetic energy of nuclei)} \\
 T_{\rm el}  &= \sum_{i=1}^N\frac{\nabla_i^2}{2} &\text{(kinetic energy of electrons)} \\
 V_{\rm nuc-nuc} &= \frac{1}{2}\sum_{I \ne J}\frac{Z_I Z_J}{|{\bf R}_I - {\bf R}_J|} &\text{(nuclei-nuclei repulsion)} \\
 V_{\rm nuc-el} &= -\sum_{i,I}\frac{Z_I}{|{\bf r}_i - {\bf R}_I|} &\text{(nuclei-electron attraction)} \\
 V_{\rm el-el} &= \frac{1}{2}\sum_{i \ne j}\frac{1}{|{\bf r}_i - {\bf r}_j|} &\text{(electron-electron repulsion)}
-\end{align*}$$
+\end{align*}
+```
 
 ##
 * In this case, the Schrödinger equation becomes
@@ -38,13 +42,14 @@ V_{\rm el-el} &= \frac{1}{2}\sum_{i \ne j}\frac{1}{|{\bf r}_i - {\bf r}_j|} &\te
 
 ## Dirac's braket notation
 * It is convenient to use the Dirac's "bra-ket notation" for wave functions and multi-dimensional integrals in electronic structure theory in order to simplify the notation. The equivalences are defined as
-$$
+```math
 \begin{align*}
 \ket{\Psi} \equiv \Psi, &\hspace{5mm} \bra{\Psi} \equiv \Psi^{*} \\
 \int{d{\bf r} \Psi^{*}\Psi} &= \braket{\Psi|\Psi} \\
 \int{d{\bf r} \Psi^{*}\hat{H}\Psi } &= \braket{\Psi|\hat{H}|\Psi}
 \end{align*}
-$$
+```
+
 * The ket $\ket{\Psi}$ denotes a wave function while the bra $\bra{\Psi}$ denotes a complex conjugate wave function $\Psi^{*}$. The combined braket denotes that the whole expression should be integrated over all coordinates.
 
 ## Hartree-Fock theory - Introduction
@@ -59,28 +64,28 @@ $$
 * We are mainly interested in the electronic ground state energy $E_0$.
 * There is an important quantum mechanical principle - the *Rayleigh-Ritz variational principle* - that provides a route to find approximate solutions for $E_0$.
 * It states that the expectation value of $\hat{H}$ of any $\Psi$ is always higher than or equal to the exact $E_0$, i.e.
-$$
+```math
 E_0 \le \frac{\braket{\Psi|\hat{H}|\Psi}}{\braket{\Psi|\Psi}}
-$$
+```
 * So, the expectation value calculated by the wave function at your hand $\Psi$  will always be an upper bound for the true ground state energy. By improving $\ket{\Psi}$, you will have a lower expectation value and that is closer to the true ground state energy.
 
 ##
 * Since $V_{\rm nuc-el}$ is an effective external potential for an electron, we write it
-$$
+```math
 v_{\rm ext}({\bf r}) = -\sum_I \frac{Z_I}{|{\bf r} - {\bf R}_I|}
-$$
+```
 * And we define the one-electron Hamiltonian
-$$
+```math
 \hat{h}({\bf r}) = -\frac{\nabla^2}{2} + v_{\rm ext}({\bf r})
-$$
+```
 * Then one can form the one-electron SE as
-$$
+```math
 \hat{h}({\bf r})\psi_i({\bf r}) = \epsilon_i\psi_i({\bf r})
-$$
+```
 * In this case, the $N$-electron wave function can be expressed by the product of $\psi_i$ as
-$$
+```math
 \Psi_{\rm HP}({\bf r}_1, {\bf r}_2, \cdots, {\bf r}_N) = \psi_1({\bf r}_1)\psi_2({\bf r}_2)\cdots\psi_N({\bf r}_N)
-$$
+```
 * This wave function is called **Hartree product**, and it is a first crude guess for the true $N$-electron wave function.
 * Note that $\psi_i$ is orthonormal thus $\braket{\psi_i({\bf r})|\psi_j({\bf r})} = \delta_{ij}$.
 
@@ -93,35 +98,35 @@ $$
 * Assuming that ${\bf r}$ and $\omega$ are independent, we have $\chi_i({\bf x}) = \psi_i({\bf r})\sigma_i(\omega)$, where $\psi$ and $\sigma$ denote the spatial and spin parts.
 * $\chi$, $\phi$, $\sigma$ are a spin orbital, spatial orbital, and spin function.
 * Since an electron have no chance to take both $\alpha$ and $\beta$ spin simultaneously, following integration over the spin variable holds.
-$$
+```math
 \begin{align*}
 \int d\omega \alpha^{*}(\omega)\alpha(\omega) = 1 \\
 \int d\omega \beta^{*}(\omega)\beta(\omega) = 1 \\
 \int d\omega \alpha^{*}(\omega)\beta(\omega) = 0 \\
 \int d\omega \beta^{*}(\omega)\alpha(\omega) = 0
 \end{align*}
-$$
+```
 
 ## Hartree equation
 * Using the spin orbital $\chi$ above, we determine the expectation value of the Hamiltonian
-$$
+```math
 \hat{H} = \hat{h}({\bf r}) + \frac{1}{2}\sum_{i\ne j}^N\frac{1}{|{\bf r}_i - {\bf r}_j|}
-$$
+```
 with respect to the Hartree product. This becomes
-$$
+```math
 \begin{align*}
 \braket{\Psi_{\rm HP}|\hat{H}|\Psi_{\rm HP}} = & \sum_{i=1}^N\int d{\bf x} \chi_i^{*}({\bf x}) \hat{h({\bf r})} \chi_i({\bf x}) \\
 &+ \frac{1}{2}\sum_{i=1}^N\int d{\bf x} d{\bf x}' \chi_i^{*}({\bf x})\chi_j^{*}({\bf x}') \frac{1}{|{\bf r} - {\bf r}'|} \chi_i({\bf x})\chi_j({\bf x}') \\
 &+ V_{\rm nuc-nuc}
 \end{align*}
-$$
+```
 
 ##
 * Now we minimize this w.r.t. $\chi_i({\bf x})$ under the constraint that $\chi_i^{*}({\bf x})$ is normalized.
 * This is a typical variational problem with the constraint taken into account via *Lagrange multipliers*, which gives
-$$
+```math
 \frac{\delta}{\delta\chi_i^{*}}\left[\braket{\Psi_{\rm HP}|\hat{H}|\Psi_{\rm HP}}-\sum_{i=1}^N\left\{\epsilon_i\left(1-\braket{\chi_i|\chi_i}\right)\right\}\right] = 0
-$$
+```
 
 ##
 * The $\epsilon_i$ act as Lagrange multipliers ensuring the normalization of $\chi_i({\bf x})$. This leads to the so-called **Hartree equation** as
