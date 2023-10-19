@@ -47,7 +47,7 @@ V_{\rm el-el} &= \frac{1}{2}\sum_{i \ne j}\frac{1}{|{\bf r}_i - {\bf r}_j|} &\te
 * It is convenient to use the Dirac's "bra-ket notation" for wave functions and multi-dimensional integrals in electronic structure theory in order to simplify the notation. The equivalences are defined as
 ```math
 \begin{align*}
-\ket{\Psi} \equiv \Psi, &\hspace{5mm} \bra{\Psi} \equiv \Psi^{*} \\
+\ket{\Psi} \equiv \Psi, &\hspace{5pt} \bra{\Psi} \equiv \Psi^{*} \\
 \int{d{\bf r} \Psi^{*}\Psi} &= \braket{\Psi|\Psi} \\
 \int{d{\bf r} \Psi^{*}\hat{H}\Psi } &= \braket{\Psi|\hat{H}|\Psi}
 \end{align*}
