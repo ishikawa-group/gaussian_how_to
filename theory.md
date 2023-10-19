@@ -41,7 +41,7 @@ V_{\rm el-el} &= \frac{1}{2}\sum_{i \ne j}\frac{1}{|{\bf r}_i - {\bf r}_j|} &\te
 \hat{H}_{\rm el}(\left\{ {\bf R} \right\}) \Psi({\bf r}, \left\{ {\bf R} \right\}) = E_{\rm el}(\left\{ {\bf R} \right\}) \Psi({\bf r}, \left\{ {\bf R} \right\})
 ```
 * Here, one can make the direct functional relationship (or "mapping") between the nuclear coordinates $\{{\bf R}\}$ and the electronic energy $E_{\rm el}$.
-* It is quite informative to visualize $E_{\rm el}(\{{\bf R}\})$ as the function of $\lbrace{\bf R}\rbrace$, which is often called **potential energy surface**.
+* It is quite informative to visualize $E_{\rm el}(\lbrace{\bf R}\rbrace)$ as the function of $\lbrace{\bf R}\rbrace$, which is often called **potential energy surface**.
 
 ## Dirac's braket notation
 * It is convenient to use the Dirac's "bra-ket notation" for wave functions and multi-dimensional integrals in electronic structure theory in order to simplify the notation. The equivalences are defined as
@@ -252,8 +252,10 @@ F_{\mu \nu} = \int d{\bf x} \tilde{\chi}_{\mu}({\bf x}) \hat{f}({\bf x}) \tilde{
 * With reference to the Hartree-Fock theory, $E_{ee}[\rho]$ may be divided into Coulomb and exchange parts, $J[\rho]$ and $K[\rho]$.
 * Among these energy functionals, $E_{ne}[\rho]$ and $J[\rho]$ can be interpreted by the classical electrodynamics, 
 ```math
+\begin{align*}
 E_{ne}[\rho] = -\sum_i^{N_{nuc}}\int\frac{Z_a(R_a)\rho({\bf r})}{|{\bf R}_a - {\bf r}|}d{\bf r} \\
 J[\rho] = \frac{1}{2}\int\int\frac{\rho({\bf r})\rho({\bf r'})}{|{\bf r} - {\bf r'}|}d{\bf r}d{\bf r'}
+\end{align*}
 ```
 
 ##
@@ -276,8 +278,7 @@ C_F = \frac{3}{10}(3\pi^2)^{2/3}, \ C_X = \frac{3}{4}\left( \frac{3}{\pi} \right
 ```math
 H_{\lambda} = {\bf T} + {\bf V}_{ext}(\lambda) + \lambda {\bf V}_{ee}
 ```
-
-* The external potential operator ${\bf V}_{\rm nuc-el}$, $`{\bf V}_{ext}`$ is equal to ${\bf V}_{ee}$ for $\lambda = 1$, but for intermediate $\lambda$ value it is assumed that ${\bf V}_{ext}(\lambda)$ is adjusted such that the same density is obtained for $\lambda = 1$ (the real system), for $\lambda = 0$.
+* The external potential operator $`{\bf V}_{ext}`$ is equal to $`{\bf V}_{ee}`$ for $\lambda = 1$, but for intermediate $\lambda$ value it is assumed that ${\bf V}_{ext}(\lambda)$ is adjusted such that the same density is obtained for $\lambda = 1$ (the real system), for $\lambda = 0$.
 
 ##
 
