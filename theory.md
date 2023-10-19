@@ -217,7 +217,7 @@ F_{\mu \nu} = \int d{\bf x} \tilde{\chi}_{\mu}({\bf x}) \hat{f}({\bf x}) \tilde{
 ```
 * Then the HF equation becomes the **Hartree-Fock-Roothaan** equation
 ```math
-\sum_{\nu}F_{\mu\nu}C_{\nu i} = \epsilon_i \sum_{\nu}S_{\mu\nu}C_{\nu i} \hspace{3mm} \text{or} \hspace{3mm} {\bf FC} = {\bf SC\epsilon}
+\sum_{\nu}F_{\mu\nu}C_{\nu i} = \epsilon_i \sum_{\nu}S_{\mu\nu}C_{\nu i}\hspace{10pt}\text{or}\hspace{3mm} {\bf FC} = {\bf SC\epsilon}
 ```
 * This is a general eigenvalue problem, and easily solved.
 * As ${\bf F}$ depends on ${\bf C}$, it should be solved by the SCF manner.
