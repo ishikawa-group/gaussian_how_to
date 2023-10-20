@@ -172,7 +172,7 @@ which corresponds to the electrostatic potential of all electrons. With $\hat{v}
 ```math
 \begin{align*}
 \Psi({\bf x}_1,{\bf x}_2) &= \chi_1({\bf x}_1)\chi_2({\bf x}_2) & &\text{(Hatree product)} \\
-\Psi({\bf x}_1,{\bf x}_2) &= \chi_1({\bf x}_1)\chi_2({\bf x}_2) - \chi_1({\bf x}_2)\chi_1({\bf x}_2) & &\text{(Slater determinant)}
+\Psi({\bf x}_1,{\bf x}_2) &= \chi_1({\bf x}_1)\chi_2({\bf x}_2) - \chi_1({\bf x}_2)\chi_2({\bf x}_1) & &\text{(Slater determinant)}
 \end{align*}
 ```
 
