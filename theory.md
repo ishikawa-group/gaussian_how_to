@@ -244,6 +244,11 @@ F_{\mu \nu} = \int d{\bf x} \tilde{\chi}_{\mu}({\bf x}) \hat{f}({\bf x}) \tilde{
 * A wave function and the electron density are thus *functions*, while the energy depending on a wave function or an electron density is a *functional*.
 * We will denote a function depending on a set of variables ${\bf x}$ with $f({\bf x})$, while a functional depending on a function $f$ is denoted as $F[f]$.
 
+* In the DFT, the electron density (and not the wave function) is mainly used.
+```math
+\rho({\bf r}) = \sum_{i=1}^N \psi_i^{*}({\bf r})\psi_i({\bf r})
+```
+
 ## Orbital-free DFT
 * The electronic energy functional of electron density $\rho$ can be divided into three parts
     * kinetic energy functional $T[\rho]$
@@ -263,9 +268,11 @@ J[\rho] = \frac{1}{2}\int\int\frac{\rho({\bf r})\rho({\bf r'})}{|{\bf r} - {\bf 
 * Here, the factor of 1/2 in $J[\rho]$ allows the integration to be done over all space fo both ${\bf r}$ and ${\bf r'}$ variables. Unlike these energy components, exchange part $K[\rho]$ can only be interpreted by the quantum mechanics.
 * Early attempts of deducing functionals for the kinetic and exchange energies considered a uniform electrons gas where it may be shown that $T[\rho]$ and $K[\rho]$ are given by Thomas, Fermi, and Dirac as
 ```math
-T_{TF}[\rho] = C_F \int \rho^{5/3}({\bf r})d{\bf r} \\
-K_D[\rho] = -C_X \int \rho^{4/3}({\bf r})d{\bf r} \\
-C_F = \frac{3}{10}(3\pi^2)^{2/3}, \ C_X = \frac{3}{4}\left( \frac{3}{\pi} \right)^{1/3}
+\begin{align*}
+& T_{TF}[\rho] = C_F \int \rho^{5/3}({\bf r})d{\bf r} \\
+& K_D[\rho] = -C_X \int \rho^{4/3}({\bf r})d{\bf r} \\
+& C_F = \frac{3}{10}(3\pi^2)^{2/3}, \ C_X = \frac{3}{4}\left( \frac{3}{\pi} \right)^{1/3}
+\end{align*}
 ```
 
 * Since $T[\rho]$ and $K[\rho]$ functionals are depending directly on the electron density, these methods are called *orbital-free DFT*, as opposed to the Kohn-Sham theory discussed in the next section.
@@ -283,17 +290,19 @@ H_{\lambda} = {\bf T} + {\bf V}_{ext}(\lambda) + \lambda {\bf V}_{ee}
 ##
 
 * For the $\lambda = 0$ case, the electrons are non-interacting, and the exact solution to the Schrodinger equation is given as a Slater determinant.
-* The exact kinetic energy functional is
+* In this case, the exact kinetic energy functional is
 ```math
-T_{KS} = \sum_i^{N_{el}}\braket{\phi_i|-\frac{1}{2}\nabla^2|\phi_i}
+T_{KS} = \sum_i^{N_{el}}\braket{\phi_i|-\frac{\nabla^2}{2}|\phi_i}
 ```
-
-* The $\lambda = 1$ corresponds to interacting electrons, and Eq.X is therefore only an approximation to the real kinetic energy.
+* In reality the $\lambda$ is 1 so above is only an approximation to the real kinetic energy.
 * The key to Kohn-Sham theory is to calculate the kinetic energy under the assumption of non-interacting electrons.
 * The remaining kinetic energy is absorbed into an exchange-correlation term, and a general DFT energy expression can be written as
 ```math
 E_{DFT}[\rho] = T_{KS}[\rho] + E_{ne}[\rho] + J[\rho] + E_{XC}[\rho]
 ```
+
+## Exchange-correlation functional
+* to be written
 
 ## Gradient methods and molecular property
 * Once the electronic energy is obtained by solving the electronic Schrodinger equation, a number of molecular properties, perhaps the most important being the equilibrium molecular geometry, can be determined.
