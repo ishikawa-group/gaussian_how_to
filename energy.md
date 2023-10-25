@@ -103,17 +103,20 @@ where ${\bf F}$ is the Fock matrix, ${\bf C}$ is the molecular orbital (MO) coef
 * As its name indicates, the parametrization of this basis set is intended to cover the electron correlation effectively.
 * This basis set automatically includes the polarization function so no need to add.
 * To add the diffuse function, use *aug-cc-pVXZ* (aug means augmentation).
+* Usually, cc-pVXZ basis has more primitive Gaussian functions than 6-31G series basis set. This means lager number of integrations are necessary, thus longer computational time. For example the geometry optimization using cc-pVDZ takes longer time than that using 6-31G\*.
 
 ### Summary
 * To summarize the popular basis set levels:
 
 | quality     | basis set                |
 | ----------- | ------------------------ |
-| low         | STO-3G, 6-31G            |
+| low         | STO-3G, 3-21G, 6-31G     |
 | medium      | 6-31G\*                  |
 | medium-high | 6-31+G\*                 |
 | high        | 6-311G\*\*, cc-pVDZ      |
 | very high   | aug-cc-pVXZ (X = T or Q) |
+
+* In scientific papers, 6-31G\* or cc-pVDZ is often used. For STO-3G or 6-31G, referees may complain for the lack of accuracy.
 
 ### Reference
 * The details of the basis set can be found the Gaussian website: https://gaussian.com/basissets/
@@ -215,5 +218,5 @@ SCF Done ...
 ---
 
 ## Exercises
-1. Plot the occupied MOs of H2O with small basis set (like HF/STO-3G or HF/6-31G), and label them by e.g. O-H sigma bond, O lone pair etc.
-2. Compare the calculated energy of H2O with several basis sets (same geometry). Summarize them in a table, or plot the calculated energy with respect to the number of basis functions. The number of basis function is found in `NBasis` in output file.
+1. Plot the occupied MOs of H2O with small basis set (like HF/STO-3G or HF/6-31G), and interpret them in terms of conventional chemical bonds, such as O-H sigma bond, O lone pair etc.
+2. Compare the calculated energy of H2O with HF method, at several basis sets (same geometry). Summarize them in a table, or plot the calculated energy with respect to the number of basis functions. The number of basis function is found in `NBasis` in output file. Confirm the variational principle.

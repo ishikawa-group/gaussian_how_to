@@ -81,7 +81,10 @@ math: mathjax
 
 ## Confirming jobs
 * To confirm your job status, type: `qstat`.
-
+* Job states
+    * `qw`: waiting for run
+    * `r` : running
+    
 ## Stopping jobs
 * To stop your jobs, type: `qdel [JOB_ID]`.
 * To know the JOB_ID, do `qstat`.
