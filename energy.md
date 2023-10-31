@@ -87,7 +87,7 @@ H   0.441  -0.143   0.000
 
 * The figure shows that how to approximate the STO with GTO. Taking summation of GTOs with several exponents (GTO1 has the largest exponent and GTO3 has the smallest) makes good approximation.
 <p align="center">
-<img src=./fig/sto_and_gto.png>
+<img src=./fig/sto_and_gto.png width=80%>
 </p>
 
 ### Polarization and diffuse functions
