@@ -86,7 +86,9 @@ H   0.441  -0.143   0.000
 * The "31" part of the 6-31G basis means "one contracted GTO with three primitive GTO" and "one (uncontracted) GTO".
 
 * The figure shows that how to approximate the STO with GTO. Taking summation of GTOs with several exponents (GTO1 has the largest exponent and GTO3 has the smallest) makes good approximation.
-![sto_and_gto](./fig/sto_and_gto.png)
+<p align="center">
+<img src=./fig/sto_and_gto.png>
+</p>
 
 ### Polarization and diffuse functions
 * Polarization function
