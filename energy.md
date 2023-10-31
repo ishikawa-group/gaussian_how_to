@@ -86,9 +86,12 @@ H   0.441  -0.143   0.000
 * The "31" part of the 6-31G basis means "one contracted GTO with three primitive GTO" and "one (uncontracted) GTO".
 
 * The figure shows that how to approximate the STO with GTO. Taking summation of GTOs with several exponents (GTO1 has the largest exponent and GTO3 has the smallest) makes good approximation.
+
 <p align="center">
 <img src=./fig/sto_and_gto.png width=80%>
 </p>
+
+* The coefficients of each GTOs ($c_i$) are optimized beforehand, and summed GTO is treated as ONE function. 
 
 ### Polarization and diffuse functions
 * Polarization function
@@ -197,6 +200,14 @@ SCF Done ...
         2. `cubegen 1 mo=homo h2o.fchk homo.cube`
         3. transfer the cube file to your local PC, and plot it with some software
     * Acutually GaussView (and other visualization software) does the same thing on the viewer side.
+
+### MO visualization with Avogadro
+1. Load the fchk file.
+2. In "Display Types", click config part of "Surface" then change color.
+3. Click the MO you want to plot from the MOs panel.
+
+### MO visualization with VESTA
+* Load the cube file made by the above procedure.
 
 ---
 
