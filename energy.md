@@ -50,10 +50,10 @@ H   0.441  -0.143   0.000
   | B3LYP   | DFT with B3LYP functional                |
 
 * In Hartree-Fock or DFT calculation, self-consistent field (SCF) problem is used, i.e. following the Hartree-Fock-Roothaan problem is solved.
-$$
+```math
 {\bf FC} = {\bf SC\epsilon}
-$$
-where ${\bf F}$ is the Fock matrix, ${\bf C}$ is the molecular orbital (MO) coefficient matrix, ${\bf S}$ is the overlap matrix, and $\epsilon$ is the orbital energy matrix.
+```
+* ${\bf F}$ is the Fock matrix, ${\bf C}$ is the molecular orbital (MO) coefficient matrix, ${\bf S}$ is the overlap matrix, and $\epsilon$ is the orbital energy matrix.
 * ${\bf F}$ and ${\bf S}$ is given before solving the above eigenvalue problem, while ${\bf C}$ and $\epsilon$ is calculated and these makes the MOs.
 
 ### Electron correlation
@@ -84,6 +84,9 @@ where ${\bf F}$ is the Fock matrix, ${\bf C}$ is the molecular orbital (MO) coef
 * As the valence electrons are softer, so the basis set representing them should be flexible enough. To achieve this, two or three independent GTOs are used.
 * When two GTOs are used for valence part, the basis set is called *double-zeta (DZ)* where zeta means the exponent of the GTOs. When three GTOs are used, it is called *triple-zeta (TZ)*.
 * The "31" part of the 6-31G basis means "one contracted GTO with three primitive GTO" and "one (uncontracted) GTO".
+
+* The figure shows that how to approximate the STO with GTO. Taking summation of GTOs with several exponents (GTO1 has the largest exponent and GTO3 has the smallest) makes good approximation.
+![sto_and_gto](./fig/sto_and_gto.png)
 
 ### Polarization and diffuse functions
 * Polarization function

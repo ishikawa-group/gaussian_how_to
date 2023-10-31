@@ -65,7 +65,7 @@ math: mathjax
 * After that, you can login TSUBAME by `ssh tsubame`.
 
 ## Basic linux commands
-* `cd`: To change the current directory, `cd target_dir`. Note that `target_dir` should be a directory, not a file.
+* `cd`: To change the current directory, `cd target_dir`. Note that `target_dir` should be a directory, not a file. Going upper directory, do `cd ..`.
 * `ls`: To list the files and directories in the current directory, you should `ls`.
 * `cp`: To copy a file, you should `cp from_file to_file`.
 * `pwd`: To display the current directory, type `pwd`.
@@ -100,7 +100,7 @@ math: mathjax
     * exit without saving: `:q!`
 
 ## scp
-* After making a ssh-login environment, you can use `scp` (means secure copy) to send/take file from/to remove environment.
+* After making a ssh-login environment, you can use `scp` (means secure copy) to send/take file from/to remote environment.
     * send: `scp your_file login_node:directory`
     * take: `scp login_node:directory your_local_directory`
 
