@@ -11,8 +11,34 @@
 * `opt=TS` will do the TS optimization.
 * `calcFC`: Calculate the force constant before doing the TS calculation. Use like `opt(TS, calcFC)`
 * `readFC`: Read the pre-calculated force constant. Use like `opt(TS, readFC)`
+* Gaussian checks the number of imaginary frequency during the TS optimization by default (called *eigentest*).
+* Usually it is better to cut this optiion, especially at early stage of TS optimization. To do this, specify `opt=(TS, noeigentest)`.
 
 ### Redundant coordinate
+* By using *redundant coordinate*, you can put some constraint during the geometry optimization.
+* To do the geometry optimization with redundant coordinate, use `opt=modredundant`.
+* The details of the redundant coordinate should be provided *under* the element coordinate section.
+* Details of redundant coordinate can be seen https://gaussian.com/modred/.
+* Some typical cases:
+    * Fixing the position of atom 1: `X 1 F`
+    * Fixing the bond of 1 and 2: `B 1 2 F`
+    * Fixing the angle between 1-2-3: `A 1 2 3 F`
+    * Fixing the dihedral angle of 1-2-3-4: `D 1 2 3 4 F`
+* For example in fixing the one H-O bond in H2O,
+```
+# HF/6-31G opt=modred
+
+Input for geometry optimization
+
+0 1
+O  -0.464   0.177   0.000
+H  -0.464   1.137   0.000
+H   0.441  -0.143   0.000
+
+B 1 2 F
+
+```
+
 
 ## Analyzing output
 * As stated in Background, the TS is the saddle point in the potential energy surface. This mathematically means that the second-derivative matrix (or Hessian) should have one negative eigenvalue. In vibrational frequency, the negative eigenvalue corresponds to the imaginary number as it takes the square root of the eigenvalue.
@@ -67,6 +93,22 @@ reverse
 ```
 * These are IRC starting from TS to forward and reverse directions, respectively. Note that forward and reverse directions are somewhat arbitrary so does not correspond to reactant and product, respectively; *always check the geometry.*
 * IRC calculation can be also visualized with GaussView.
+
+## Typical procedure for TS optimization
+1. First you have to have the geometry of reactant. So optimize the reactant geometry first.
+2. After having the reactant geometry, try to modify the molecular structure with GaussView (or other viewers). For example, make two reacting atoms closer (so as to approach the TS-like structure).
+3. Then make Gaussian input for that structure, and do geometry optimization by fixing that modified coordinate with *redundant coordinate*.
+4. After the optimization, get vibratoinal frequency at that geometry, and see whether the negative eigenvalue is included or not.
+5. If negative frequency is found, go next. If not, try to build new geometry (for example, making two atoms even closer) and repeat optimization and freuency analysis.
+6. Do geometry optimization for TS.
+    * When calculating force constant matrix from the beggining, do `opt=(TS, noeigentest, calcFC)`.
+    * You can use calculated force constant by copying previous checkpoint file (.chk) to new checkpoint file (don't forget to specify .chk by setting `%chk=new.chk` in input). Then do `opt=(TS, noeigentest, readFC)`.
+    * Redundant coordinate is no longer necessary.
+7. When optimization is done and you find *one* imaginary frequency, you finished your job.
+
+* It is better to start with low- or mid-level basis set.
+* There are other approaches to do TS optimization, such as using *QST2* or *QST3*, that uses two or three geometries that approximates the TS geometry (close to the dimer method often used in VASP). Try by yourself.
+
 ---
 
 ## Exercises

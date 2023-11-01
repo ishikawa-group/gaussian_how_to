@@ -28,6 +28,7 @@ H   0.441  -0.143   0.000
 ### Analyzing the output
 * Load the `.out` or `.fchk` file with GaussView.
 * By clicking `Results` -> `Optimization`, you can see the geometry changes during the optimization.
+* The process of geometry convergence can be tracked by the keyword `Converged`.
 
 # Vibrational frequency analysis
 ## Background

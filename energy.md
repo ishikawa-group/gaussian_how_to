@@ -126,27 +126,33 @@ H   0.441  -0.143   0.000
 
 * In scientific papers, 6-31G\* or cc-pVDZ is often used. For STO-3G or 6-31G, referees may complain for the lack of accuracy.
 
-### Reference
-* The details of the basis set can be found the Gaussian website: https://gaussian.com/basissets/
+### Pseudopotentials
+* For elements with a large number of electrons such transition metals, using *pseudopotential* is helpful.
+* The atomic electronic configuration can be expressed as closed core (such as He core, Ar core) plus valence electrons, since interaction of the closed core and valence electrons are limited.
+* Pseudopotentials employ this property, and replaces the closed core with some potentials.
+* These potentials are well parametrized, and no electrons are included in the potential so no need to put basis set for valence electrons.
+* This reduces the computational cost very much.
 
-## Energy calculation: specification in route section
-* The computational method and basis set should be specified at the route section.
-* It can be simply specified as `method/basis set`. For example, when performing the Hartree-Fock calculation with 6-31G basis set, the route section should be `# HF/6-31G`.
+* In Gaussian, you need to specify both *pseudopotential* and *pseudopotential basis set*. These represents core and valence electrons, respectively.
+```
+# B3LYP/6-31G pseudo=read
+     
+HF/6-31G(d) on O and 6-31G on H
 
-## Geometry of the molecule
-* One can use GaussView to make the molecule.
-* The generated file can be directly used for the Gaussian, or you can modify some of them if you like.
+0 1
+Ni  -0.464   0.177   0.000
+H   -0.464   1.137   0.000
+H    0.441  -0.143   0.000
+    
+Ni 0
+lanl2dz
 
-## Link-0 command
-* In the input file, you can specify the *number of CPUs*, *amount of memory*, and the *name of the checkpoint file*.
-* Checkpoint file (.chk) is the intermediate file having the computational results. Sometimes you need to have this file for visualization or restarting the calculation.
-* Checkpoint file (binary) can be converged to *formatted checkpoint file (.fchk)* (text file) by linux command `formchk XXX.chk XXX.fchk`.
-* Usually, there is a default setting for the number of the CPUs and amount memory.
+```
 
 ### Element-wise specification of basis set
 * You can specify the different basis set for different elements. To do, you should put `gen` keyword in the route section.
 ```
-# B3LYP/Gen
+# B3LYP/gen
      
 HF/6-31G(d) on O and 6-31G on H
 
@@ -163,6 +169,53 @@ H 0
 ****
 
 ```
+* When using pseudopotentials, specify `genecp` instead of `gen`.
+```
+# B3LYP/genecp
+     
+HF/6-31G(d) on O and 6-31G on H
+
+0 1
+Ni  -0.464   0.177   0.000
+H   -0.464   1.137   0.000
+H    0.441  -0.143   0.000
+
+H 0
+6-31G
+****
+Ni 0
+lanl2dz
+****
+
+Ni 0
+lanl2
+
+```
+* To use the basis set not prepared by Gaussian, copy and paste the text obtained from https://www.basissetexchange.org/.
+
+### Reference
+* The details of the basis set can be found the Gaussian website: https://gaussian.com/basissets/
+
+## Energy calculation: specification in route section
+* The computational method and basis set should be specified at the route section.
+* It can be simply specified as `method/basis set`. For example, when performing the Hartree-Fock calculation with 6-31G basis set, the route section should be `# HF/6-31G`.
+
+## Making geometry section of the molecule
+* One can use GaussView to make the molecule.
+* The generated file can be directly used for the Gaussian, or you can modify some of them if you like.
+* You can obtain SDF file from Pubchem (https://pubchem.ncbi.nlm.nih.gov/). The SDF file can be converted with *openbabel*.
+    * *openbabel* is the software to do conversion among physics/chemistry-related files.
+    * Install
+        * Mac (with homebrew): `brew install open-babel`
+        * Windows (with WSL): `sudo apt-get install openbabel`
+    * Converting SDF to Gaussian input file: `obabel -isdf test.sdf -ogjf -O test.com`
+
+## Link-0 command
+* In the input file, you can specify the *number of CPUs*, *amount of memory*, and the *name of the checkpoint file*.
+* Checkpoint file (.chk) is the intermediate file having the computational results. Sometimes you need to have this file for visualization or restarting the calculation.
+* Checkpoint file (binary) can be converged to *formatted checkpoint file (.fchk)* (text file) by linux command `formchk XXX.chk XXX.fchk`.
+* Usually, there is a default setting for the number of the CPUs and amount memory.
+
 
 ---
 
