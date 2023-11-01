@@ -30,7 +30,7 @@ math: mathjax
     cd
     ln -s /mnt/c/Users/your_user_name/Desktop/ desktop
     ```
-* If some commands are unavailable (e.g. vi), install them by `sudo apt-get install vim`.
+* If some commands are unavailable (e.g. vi), install them by `sudo apt install vim`.
 
 ## ssh
 * To login the supercomputer from your environment, you need to use *ssh* so you have to set up it.

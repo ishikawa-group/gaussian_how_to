@@ -126,31 +126,35 @@ H   0.441  -0.143   0.000
 
 * In scientific papers, 6-31G\* or cc-pVDZ is often used. For STO-3G or 6-31G, referees may complain for the lack of accuracy.
 
-### Pseudopotentials
-* For elements with a large number of electrons such transition metals, using *pseudopotential* is helpful.
+### Effective core potentials
+* For elements with a large number of electrons such transition metals, using *effective core potential (ECP)* (also called *pseudopotential*) is helpful.
 * The atomic electronic configuration can be expressed as closed core (such as He core, Ar core) plus valence electrons, since interaction of the closed core and valence electrons are limited.
-* Pseudopotentials employ this property, and replaces the closed core with some potentials.
+* ECPs employ this property, and replaces the closed core with some potentials.
+* Many of ECPs include the relativistic effects.
 * These potentials are well parametrized, and no electrons are included in the potential so no need to put basis set for valence electrons.
 * This reduces the computational cost very much.
 
-* In Gaussian, you need to specify both *pseudopotential* and *pseudopotential basis set*. These represents core and valence electrons, respectively.
 ```
-# B3LYP/6-31G pseudo=read
-     
-HF/6-31G(d) on O and 6-31G on H
+# B3LYP/lanl2dz
+
+ECP input example
 
 0 1
-Ni  -0.464   0.177   0.000
+Pt  -0.464   0.177   0.000
 H   -0.464   1.137   0.000
 H    0.441  -0.143   0.000
-    
-Ni 0
-lanl2dz
 
 ```
+* However, the above specification will use LANL2DZ to *all elements* (in this case, H atoms). So this is not flexible. To avoid this, you can use the general basis set format (following section).
+* You can choose following ECPs:
+    * low level: LANL2MB
+    * midium level: LANL2DZ
+    * high level: SDD
+* Even higher level basis set are on EMSL basis set exchange webpage (https://www.basissetexchange.org/).
 
 ### Element-wise specification of basis set
 * You can specify the different basis set for different elements. To do, you should put `gen` keyword in the route section.
+* This is called *general basis set format*.
 ```
 # B3LYP/gen
      
@@ -169,29 +173,31 @@ H 0
 ****
 
 ```
-* When using pseudopotentials, specify `genecp` instead of `gen`.
+* When using ECPs, add `pseudo=read` or replace `gen` with `genecp`.
+* In general basis set format, you need to specify both *ECP* and *ECP basis set*. These represents core and valence electrons, respectively.
 ```
-# B3LYP/genecp
+# B3LYP/gen pseudo=read
      
-HF/6-31G(d) on O and 6-31G on H
+ECP input
 
 0 1
-Ni  -0.464   0.177   0.000
+Pt  -0.464   0.177   0.000
 H   -0.464   1.137   0.000
 H    0.441  -0.143   0.000
 
 H 0
 6-31G
 ****
-Ni 0
+Pt 0
 lanl2dz
 ****
 
-Ni 0
+Pt 0
 lanl2
 
 ```
-* To use the basis set not prepared by Gaussian, copy and paste the text obtained from https://www.basissetexchange.org/.
+* The "lanl2dz" in the above is the valence basis set, and "lanl2" below is the ECP.
+* To use the basis set not prepared by Gaussian, copy and paste the text obtained from EMSL (https://www.basissetexchange.org/).
 
 ### Reference
 * The details of the basis set can be found the Gaussian website: https://gaussian.com/basissets/
@@ -207,7 +213,10 @@ lanl2
     * *openbabel* is the software to do conversion among physics/chemistry-related files.
     * Install
         * Mac (with homebrew): `brew install open-babel`
-        * Windows (with WSL): `sudo apt-get install openbabel`
+            * If you don't have homebrew, install it:
+            https://brew.sh/ja/.
+            * If you dont't have sudo password to do above, see https://support.apple.com/ja-jp/HT202035.
+        * Windows (with WSL): `sudo apt install openbabel`
     * Converting SDF to Gaussian input file: `obabel -isdf test.sdf -ogjf -O test.com`
 
 ## Link-0 command
