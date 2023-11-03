@@ -53,9 +53,25 @@ H   0.441  -0.143   0.000
 * `noraman`: Skip the Raman intensity calculation, which cuts the 10-30% computational time. Default is false so I recommend to always put this keyword (unless you calculating the Raman spectra). Use like `freq=noraman or freq(noraman)`.
 
 ### Analyzing the output
+* The important part of the output of frequency calculation is below:
+```
+                      1                      2                      3
+                      A                      A                      A
+ Frequencies --     92.2415               123.8872               234.9248
+ Red. masses --      4.9328                 3.6897                 4.4624
+ Frc consts  --      0.0247                 0.0334                 0.1451
+ IR Inten    --      0.8536                 0.0000                 1.2840
+ ...
+```
+* Vibrational frequencies are in ${\rm cm}^{-1}$ unit.
+* The IR(infrared) intensity is shown. The IR active vibrational mode has non-zero intensity.
+
+#### Visualization
 * Load the `.out` or `.fchk` file with GaussView.
     * when doing `opt + freq`, `.out` has both optimization trajectory and frequency result, but `.fchk` has only the frequency result.
 * By clicking `Results` -> `Vibrations`, you can see the geometry changes by `Animation`. This motion shows the *vibrational normal mode*.
+* You can visualize the IR spectrum by clicking `spectra` tab in the Vibration tool.
+* You can save the IR spectrum by text file, by `Plots` -> `Save Data`.
 
 ### Zero-point energy
 * The vibrational analysis gives the **zero-point energy (ZPE)** of molecule. This quantum-mechanical term is always present (even at zero-temperature), so should be always added to the total energy component, especially when comparing the energy of different structures.
@@ -107,5 +123,5 @@ Sum of electronic and thermal Free Energies=-527.463147  # G = H - TS
 ## Exercises
 1. Do a geometry optimization of water molecule with B3LYP/6-31G level.
 2. Do a frequency analysis of water molecule, at above-optimized structure.
-3. Do a geometry optimization of water dimer with B3LYP/6-31G level. Try to start from several initial geometries.
-4. Calculate the Gibbs free energy difference of water dimer formation. Is it a thermodynamically favored process?
+3. Form or download (from somewhere) a structure of anthracene, and do optimization and frequency analysis. Visualize the IR spectrum of it, and compare with experimental result.
+4. Optimize the water dimer, and calculate the Gibbs free energy difference of water dimer formation. Is it a thermodynamically favored process?
