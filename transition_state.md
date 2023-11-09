@@ -3,7 +3,7 @@
 * In this lecture, we will see how to locate the transition state (TS) with Gaussian.
 
 <p align=center>
-<img src=./fig/sn2.jpg width=70%>
+<img src=./fig/sn2.jpg width=40%>
 
 Fig. Reactant, transition state, and product of SN2 reaction.
 </p>
