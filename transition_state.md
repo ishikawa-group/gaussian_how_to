@@ -12,10 +12,11 @@
 Fig. Reactant, transition state, and product of SN2 reaction. $E_a$ is the activation energy.
 </p>
 
-<figure>
+<p align=center>
 <img src=./fig/pes_ts.jpeg width=40%>
-<figcaption>Fig. Potential energy surface including minima and TS.</figcaption>
-</figure>
+
+Fig. Potential energy surface including minima and TS.
+</p>
 
 
 ## Computation
