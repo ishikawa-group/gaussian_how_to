@@ -13,7 +13,7 @@ Fig. Reactant, transition state, and product of SN2 reaction. $E_a$ is the activ
 </p>
 
 <p align=center>
-<img src=./fig/pes_ts.jpeg width=40%>
+<img src=./fig/pes_ts.jpeg width=30%>
 
 Fig. Potential energy surface including minima and TS.
 </p>
