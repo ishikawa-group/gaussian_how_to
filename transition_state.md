@@ -1,25 +1,36 @@
 # Transition state
 ## Background 
 * In this lecture, we will see how to locate the transition state (TS) with Gaussian.
-
-<p align=center>
-<img src=./fig/sn2.jpg width=40%>
-
-Fig. Reactant, transition state, and product of SN2 reaction.
-</p>
-
 * TS is the geometry connecting the reactant (before reaction) and the product system (after reaction).
 * The energy difference between the reactant and the TS is called the *activation energy* (for forward direction).
 * The energy difference of the product and the TS is also the activation energy, but for reverse direction.
 * The energy difference of the reactant and product states is called the *reaction energy*.
 
+<p align=center>
+<img src=./fig/sn2.jpg width=40%>
+
+Fig. Reactant, transition state, and product of SN2 reaction. $E_a$ is the activation energy.
+</p>
+
+<figure>
+<img src=./fig/pes_ts.jpeg width=40%>
+<figcaption>Fig. Potential energy surface including minima and TS.</figcaption>
+</figure>
+
+
 ## Computation
-* Basically, the TS optimization needs the force constant (Hessian) matrix.
+* Basically, the TS optimization needs the force constant matrix (Hessian).
 * `opt=TS` will do the TS optimization.
 * `calcFC`: Calculate the force constant before doing the TS calculation. Use like `opt(TS, calcFC)`
 * `readFC`: Read the pre-calculated force constant. Use like `opt(TS, readFC)`
 * Gaussian checks the number of imaginary frequency during the TS optimization by default (called *eigentest*).
 * Usually it is better to cut this optiion, especially at early stage of TS optimization. To do this, specify `opt=(TS, noeigentest)`.
+
+### Initial structure for the TS optimization
+* As stated above, the TS optimization needs the Hessian, but the Hessian at the energy minimum is not a good one for the TS optimization because usually its frequencies are all positive so it doesn't have an imaginary frequency.
+* The imaginary frequency mode is a good candidate for the reaction coordinate, that is connecting the reactant and the TS (also to the product).
+* So, we need to have a good initial structure for TS optimization, that is different from the optimized reactant structure but it is close to the TS structure: how?
+* To do this, using *redundant coordinate* is helpful.
 
 ### Redundant coordinate
 * By using *redundant coordinate*, you can put some constraint during the geometry optimization.

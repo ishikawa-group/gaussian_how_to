@@ -5,7 +5,7 @@
 * Geometry optimization is the procedure to find the energy minima in the potential energy curve.
 
 <p align=center>
-<img src=./fig/potential_energy_curve.png width=40%>
+<img src=./fig/pec.png width=40%>
 
 Fig. Potential energy curve for diagomic molecule ($r_{\rm eq}$ is equilibrium distance, and $D_e$ is the dissociation energy).
 </p>
