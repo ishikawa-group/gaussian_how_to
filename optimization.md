@@ -2,13 +2,13 @@
 ## Background
 * In this lecture, we will see how to do the geometry optimization with Gaussian.
 * Geometry here means the positions of nuclei in the molecule. The most stable positions of nuclei make the minimum of the total energy (electronic energy plus inter-nuclei repulsion) of the molecule. This is achieved, for example, changing the bond length of diatomic molecules (in the diatomic molecule, the relationship between coordinate and energy is called the *potential energy curve*).
+* Geometry optimization is the procedure to find the energy minima in the potential energy curve.
 
 <p align=center>
-<img src=./fig/potential_energy_curve.png width=60%>
+<img src=./fig/potential_energy_curve.png width=40%>
 
 Fig. Potential energy curve for diagomic molecule ($r_{\rm eq}$ is equilibrium distance, and $D_e$ is the dissociation energy).
 </p>
-* Geometry optimization is the procedure to find the energy minima in the potential energy curve.
 
 ## Computation
 * To perform the geometry optimization, you simply put `opt` in the route section.
