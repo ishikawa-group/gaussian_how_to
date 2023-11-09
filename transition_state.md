@@ -2,9 +2,10 @@
 ## Background 
 * In this lecture, we will see how to locate the transition state (TS) with Gaussian.
 * TS is the geometry connecting the reactant (before reaction) and the product system (after reaction).
-* The energy difference between the reactant and the TS is called the *activation energy* (for forward direction).
-* The energy difference of the product and the TS is also the activation energy, but for reverse direction.
+* The energy difference between the reactant and the TS is called the *activation energy* (for forward direction). The energy difference of the product and the TS is also the activation energy, but for reverse direction.
 * The energy difference of the reactant and product states is called the *reaction energy*.
+* TS is the point on the potential energy surface connecting the two minima. This point is the *maximum with respect to some coordinate, but minimum with respect to other coordinate*.
+* The vibrational frequency at this coordinat should have *one imaginary frequency, but all other frequencies should be positive* (will be explained later).
 
 <p align=center>
 <img src=./fig/sn2.jpg width=40%>
@@ -24,8 +25,7 @@ Fig. Potential energy surface including minima and TS.
 * `opt=TS` will do the TS optimization.
 * `calcFC`: Calculate the force constant before doing the TS calculation. Use like `opt(TS, calcFC)`
 * `readFC`: Read the pre-calculated force constant. Use like `opt(TS, readFC)`
-* Gaussian checks the number of imaginary frequency during the TS optimization by default (called *eigentest*).
-* Usually it is better to cut this optiion, especially at early stage of TS optimization. To do this, specify `opt=(TS, noeigentest)`.
+* Gaussian checks the number of imaginary frequency during the TS optimization by default (called *eigentest*). Usually it is better to cut this optiion, especially at early stage of TS optimization. To do this, specify `opt=(TS, noeigentest)`.
 
 ### Initial structure for the TS optimization
 * As stated above, the TS optimization needs the Hessian, but the Hessian at the energy minimum is not a good one for the TS optimization because usually its frequencies are all positive so it doesn't have an imaginary frequency.
@@ -60,7 +60,8 @@ B 1 2 F
 
 
 ## Analyzing output
-* As stated in Background, the TS is the saddle point in the potential energy surface. This mathematically means that the second-derivative matrix (or Hessian) should have one negative eigenvalue. In vibrational frequency, the negative eigenvalue corresponds to the imaginary number as it takes the square root of the eigenvalue.
+* As stated in Background, the TS is the saddle point in the potential energy surface. This mathematically means that the Hessian should have one negative eigenvalue.
+* In vibrational frequency, the negative eigenvalue corresponds to the imaginary number as it takes the square root of the eigenvalue.
 * To confirm the above thing, you should perform the vibrational analysis on the TS geometry, and find the vibrational frequency part
 ```
 ...
