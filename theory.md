@@ -301,9 +301,6 @@ T_{KS} = \sum_i^{N_{el}}\braket{\phi_i|-\frac{\nabla^2}{2}|\phi_i}
 E_{DFT}[\rho] = T_{KS}[\rho] + E_{ne}[\rho] + J[\rho] + E_{XC}[\rho]
 ```
 
-## Exchange-correlation functional
-* to be written
-
 ## Gradient methods and molecular property
 * Once the electronic energy is obtained by solving the electronic Schrodinger equation, a number of molecular properties, perhaps the most important being the equilibrium molecular geometry, can be determined.
 * The calculation of molecular or crystal structures is a variable supplement to experimental data in areas of structural chemistry such as X-ray crystallography, electron diffraction, and microwave spectroscopy.
@@ -369,3 +366,86 @@ q_{\rm{vib},i} &= \frac{\exp(-\Theta_i/2T)}{1-\exp(-\Theta_i/T)} & \\
 q_{\rm{vib}} &= \prod_i \frac{\exp(-\Theta_i/2T)}{1-\exp(-\Theta_i/T)} &
 \end{align*}
 ```
+
+## Excited state
+* The simplest description of an excited state is the orbital picture where one electron has been moved from an occupied to an unoccupied orbital.
+* The lowest level of theory for a qualitative description of excited states is therefore configuration interaction (CI) including only the singly-excited determinants, denoted CIS.
+
+* The Hohenberg-Kohn theorem only holds for electron densities describing the time-independent ground state.
+* The Runge-Gross theorem states that the unique one-to-one correspondence between an external potential and the electron density holds both in time-dependent and time-independent cases.
+* Time time-dependent Schrodinger equation can be written as
+$$
+\begin{align*}
+i\frac{\partial}{\partial t}\Psi({\bf r},t) = \hat{H}({\bf r},t)\Psi({\bf r},t) \\
+\hat{H}({\bf r},t) = \hat{H}_0({\bf r}) + \hat{V}_{ext}({\bf r},t)
+\end{align*}
+$$
+* Here the petrubation is consists of a time-dependent external electric potential.
+* We will assume that the time-independent part ($\hat{H}_0$) has been solved.
+
+## Time-dependent Hatree-Fock and time-dependent Kohn-Sham
+* If the wave function consists of a single Slater determinant composed of molecular orbitals, the time-dependent Schrodinger equation results in a time-dependent Hatree-Fock (TDHF) equations for the orbitals, which must be solved self-consistently.
+$$
+i\frac{\partial}{\partial t}\phi_i({\bf r},t) = (\hat{F} + \hat{V}_{ext})\phi_i({\bf r},t)
+$$
+where $\hat{F}$ is the Fock operator.
+* Since the Hatree-Fock equation and the Kohn-Sham equation is similar, so time-dependent Kohn-Sham equation can be composed similarly. This approach is called time-dependent DFT (TDDFT).
+
+## Linear response
+* The most common application of the TDHF/TDDFT is in the regime of weak perturbattion. In this case, the response of wave function or electron density is approximated to be linear to the perturbation (linear response).
+* The perturbation is usually an oscillating electric field, which in the dipole approximation can be written as 
+$$
+\hat{V}_{ext}({\bf r},t) = \mu F \cos(\omega t)
+$$
+where $\omega$ is the frequency, $F$ is the strength of the field, and $\mu$ is the dipole operator.
+* The general problem of determining the wave function or electron density response to a time-dependent perturbation can be expressed as
+$$
+\left(
+    \begin{bmatrix}
+    {\bf A}   & {\bf B} \\
+    {\bf B}^* & {\bf A}^*
+    \end{bmatrix}
+    -\omega
+    \begin{bmatrix}
+    1 & 0 \\
+    0 & -1
+    \end{bmatrix}
+\right)
+\begin{bmatrix}
+{\bf Y} \\ {\bf Z}
+\end{bmatrix}
+= -
+\begin{bmatrix}
+{\bf P} \\ {\bf P}^*
+\end{bmatrix}
+$$
+where
+$$
+\begin{align*}
+& A_{ij}^{ab} = \braket{\Psi_i^a|\hat{H}_0|\Psi_j^b} - E_0\delta_{ij}\delta_{ab}
+= \delta_{ij}\delta_{ab}(\epsilon_a - \epsilon_i) + \braket{ij|ab} - \braket{ia|jb} \\
+& B_{ij}^{ab} = \braket{\Psi|\hat{H}_0|\Psi_{ij}^{ab}} = \braket{ij|ab} - \braket{ij|ba} \\
+& P_i^a = \braket{i|{\bf r}|a}
+\end{align*}
+$$
+* ${\bf Y}$ and ${\bf Z}$ vectors represent the real and imaginary parts of the first-order response.
+* Making several approximations, this becomes
+$$
+\begin{bmatrix}
+{\bf A} & 0 \\
+0       & {\bf A}^*
+\end{bmatrix}
+\begin{bmatrix}
+{\bf Y} \\ {\bf Z}
+\end{bmatrix}
+=
+\omega
+\begin{bmatrix}
+1 & 0 \\
+0 & -1
+\end{bmatrix}
+\begin{bmatrix}
+{\bf Y} \\ {\bf Z}
+\end{bmatrix}
+$$
+* This is the working equation in the TDHF/TDDFT calculations. $\omega$ gives the excitation energy, and ${\bf Y}$ and ${\bf Z}$ vectors gives the excitation nature (such as molecular orbital contribution to the excitation).
