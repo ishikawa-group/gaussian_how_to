@@ -14,7 +14,9 @@
 * For calculating the gradient of the energy with respect to the atomic positions (${\bf R}$), the above theorem becomes
 ```math
 \begin{align*}
-\frac{\partial E}{\partial {\bf R}} = \frac{\partial}{\partial{\bf R}}\braket{\Psi|\hat{H}|\Psi} &= \braket{\frac{\partial\Psi}{\partial{\bf R}}|\hat{H}|\Psi} + \braket{\Psi| \frac{\partial\hat{H}}{\partial{\bf R}} |\Psi} + \braket{\Psi| \hat{H}|\frac{\partial\Psi}{\partial{\bf R}}} \\
+\frac{\partial E}{\partial {\bf R}}
+&= \frac{\partial}{\partial{\bf R}}\braket{\Psi|\hat{H}|\Psi}
+= \braket{\frac{\partial\Psi}{\partial{\bf R}}|\hat{H}|\Psi} + \braket{\Psi| \frac{\partial\hat{H}}{\partial{\bf R}} |\Psi} + \braket{\Psi| \hat{H}|\frac{\partial\Psi}{\partial{\bf R}}} \\
 &= E\braket{\frac{\partial\Psi}{\partial{\bf R}}|\Psi} + E\braket{\Psi|\frac{\partial\Psi}{\partial{\bf R}}} + \braket{\Psi| \frac{\partial\hat{H}}{\partial{\bf R}} |\Psi}
 \end{align*}
 ```
