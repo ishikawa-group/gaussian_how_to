@@ -3,20 +3,22 @@
 * In this lecture, we will see molecular dynamics (MD) and how to do it with Gaussian.
 
 ## Hellmann-Feynman theorem
-$$
+```math
 \frac{\partial}{\partial\lambda}\braket{\Psi|\hat{H}|\Psi}
 =\braket{\Psi|\frac{\partial\hat{H}}{\partial\lambda}|\Psi}
-$$
+```
+
 * For wave functions that are not completely optimized for all parameters (in most cases!), the Hellmann-Feymann theorem does not hold, so the left-hand-side and right-hand-side of the above equation are not identical.
 * The difference between these two values is generally not negligible, but becomes smaller by improving the accuracy; it increases computational cost, of course.
 
 * For calculating the gradient of the energy with respect to the atomic positions (${\bf R}$), the above theorem becomes
-$$
+```math
 \begin{align*}
 \frac{\partial E}{\partial {\bf R}} = \frac{\partial}{\partial{\bf R}}\braket{\Psi|\hat{H}|\Psi} &= \braket{\frac{\partial\Psi}{\partial{\bf R}}|\hat{H}|\Psi} + \braket{\Psi| \frac{\partial\hat{H}}{\partial{\bf R}} |\Psi} + \braket{\Psi| \hat{H}|\frac{\partial\Psi}{\partial{\bf R}}} \\
 &= E\braket{\frac{\partial\Psi}{\partial{\bf R}}|\Psi} + E\braket{\Psi|\frac{\partial\Psi}{\partial{\bf R}}} + \braket{\Psi| \frac{\partial\hat{H}}{\partial{\bf R}} |\Psi}
 \end{align*}
-$$
+```
+
 * The first two terms are different from the Hellmann-Feymann force, and it is called *Pulay force*.
 * The correction to the Pulay force is necessary when the wave function is dependent on the nuclear position (${\bf R}$).
 * The Gauss functions used in the Gaussian are nuclear-position-dependent, because we put these functions on the atomic positions.
@@ -31,7 +33,7 @@ $$
 * When the PBC is assumed, they also can be treated within the unit cell. Without the PBC, they are drifting away and away by time.
 
 <p align=center>
-<img src="./fig/pbc_md.png" width=50%>
+<img src="./fig/pbc_md.png" width=60%>
 
 Fig. MD simulation under the PBC. The molecule drifting away from the unit cell (solid box) can be represented as the molecule "entering" from the neighboring unit cell.
 </p>
