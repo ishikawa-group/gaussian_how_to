@@ -28,7 +28,7 @@
 * This *reduces the computational cost _of gradient calculation and increases_ the accuracy of the energy gradient*. Since the MD calculation heavily relies on the energy, and (more) on the force, this difference in accuracy is of practical importance.
 
 ## Periodic boundary condition
-* Another reason why Gaussian is not often used in the MD calculation is that it has poor capability to treat the **periodic boundary condition (PBC)*.
+* Another reason why Gaussian is not often used in the MD calculation is that it has poor capability to treat the **periodic boundary condition (PBC)**.
 * PBC assumes the translational symmetry of the unit cell holds for x, y, and z-directions.
 * PBC enables us to "cut" the part of a real material. This is a good approximation when the material's structure is homogeneous.
 * Since atoms or molecules usually drift everywhere during the MD simulation, they often go out of the unit cell boundary.
