@@ -25,10 +25,10 @@ $$
 
 ## Periodic boundary condition
 * Another reason why Gaussian is not often used in the MD calculation is that it has poor capability to treat the **periodic boundary condition (PBC)*.
-* PBC assumes the translational symmetry of unit cell holds for x,y,z-directions.
-* PBC enables to "cut" the part of a real material. This is a good approximation when the material's structure is homogeneous.
-* Since atoms or molecules usually drift everywhere during the MD simulation, they often go out the unit cell boundary.
-* When the PBC is assumed, they also can be treated within the unit cell. Without the PBC, But they are drifting away and away by time.
+* PBC assumes the translational symmetry of the unit cell holds for x, y, and z-directions.
+* PBC enables us to "cut" the part of a real material. This is a good approximation when the material's structure is homogeneous.
+* Since atoms or molecules usually drift everywhere during the MD simulation, they often go out of the unit cell boundary.
+* When the PBC is assumed, they also can be treated within the unit cell. Without the PBC, they are drifting away and away by time.
 
 <p align=center>
 <img src="./fig/pbc_md.png" width=50%>
@@ -39,7 +39,7 @@ Fig. MD simulation under the PBC. The molecule drifting away from the unit cell 
 ## Computation
 * Running AIMD with Gaussian is not impossible but its function is limited. This is available with `BOMD` keyword; see https://gaussian.com/bomd/.
 * Here we will use *Atomic simulation environment (ASE)* and call Gaussian from it.
-* Simple python script to do MD with ASE is as follows (using EMT potential instead)
+* A simple Python script to do MD with ASE is as follows (using EMT potential instead)
 ```python
 from ase.build import molecule
 from ase.md.verlet import VelocityVerlet

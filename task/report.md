@@ -1,6 +1,7 @@
 ## Report for Materials Simulation
 * Choose one of the following two tasks, depending on your background.
-* After finishing the task, send some file by e-mail that shows your jobs is completed (e.g. Gaussian output file, screenshot capture/movie). Long document is not necessary.
+* After finishing the task, **make one-page presentation slide (PowerPoint, KeyNote, etc.)** summarizing your computational result.
+* Please send it by e-mail in any format (.ppt, .pdf, .jpg etc.)
 
 ## 1. Olefin metathesis
 ### Background
@@ -56,6 +57,6 @@
 
 #### Hint
 * Do geometry optimization first.
-* Use DFT, but better functions like CAM-B3LYP is recommended.
+* Any DFT functional is OK (like B3LYP, B3PW91). Practically, using better functions like CAM-B3LYP is recommended.
 * Low-mid level basis set like 3-21G* or 6-31G* is OK.
 * Increase the number of excited states in TD-DFT calculations when your calculation doesn't cover wide spectrum region.
