@@ -15,8 +15,8 @@
 ```math
 \begin{align*}
 \frac{\partial E}{\partial {\bf R}}
-&= \frac{\partial}{\partial{\bf R}}\braket{\Psi|\hat{H}|\Psi}
-= \braket{\frac{\partial\Psi}{\partial{\bf R}}|\hat{H}|\Psi} + \braket{\Psi| \frac{\partial\hat{H}}{\partial{\bf R}} |\Psi} + \braket{\Psi| \hat{H}|\frac{\partial\Psi}{\partial{\bf R}}} \\
+= \frac{\partial}{\partial{\bf R}}\braket{\Psi|\hat{H}|\Psi}
+&= \braket{\frac{\partial\Psi}{\partial{\bf R}}|\hat{H}|\Psi} + \braket{\Psi| \frac{\partial\hat{H}}{\partial{\bf R}} |\Psi} + \braket{\Psi| \hat{H}|\frac{\partial\Psi}{\partial{\bf R}}} \\
 &= E\braket{\frac{\partial\Psi}{\partial{\bf R}}|\Psi} + E\braket{\Psi|\frac{\partial\Psi}{\partial{\bf R}}} + \braket{\Psi| \frac{\partial\hat{H}}{\partial{\bf R}} |\Psi}
 \end{align*}
 ```
@@ -35,7 +35,7 @@
 * When the PBC is assumed, they also can be treated within the unit cell. Without the PBC, they are drifting away and away by time.
 
 <p align=center>
-<img src="./fig/pbc_md.png" width=60%>
+<img src="./fig/pbc_md.png" width=70%>
 
 Fig. MD simulation under the PBC. The molecule drifting away from the unit cell (solid box) can be represented as the molecule "entering" from the neighboring unit cell.
 </p>
