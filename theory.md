@@ -8,12 +8,12 @@ math: katex
 <!-- headingDivider: 2 -->
 
 ## Why quantum chemistry?
-* The behavior of the particles is governed by the equation of motion, and its classical mechanical version is known as the Newton's law.
+* The behavior of the particles is governed by the equation of motion, and its classical mechanical version is known as Newton's law.
 * The proper description of atoms, molecules, and electrons is given by the laws of quantum mechanics. For this reason, we need to consider the **Schrödinger equation**, which is a quantum-mechanical equation of motion.
-* If the solutions of the Schrödinger equations are generated without reference to experimental data, the methods are usually called "ab initio" (latin: "from the beginning") or "first principle".
+* If the solutions of the Schrödinger equations are generated without reference to experimental data, the methods are usually called "ab initio" (Latin: "from the beginning") or "first principle".
 
 ## The Schrödinger equation
-* In chemistry or solid state physics, the fundamental interaction we are interested is the electrostatic interaction.
+* In chemistry or solid-state physics, the fundamental interaction we are interested in is the electrostatic interaction.
 * Here we introduce three assumptions to the SE
     1. time-independent
     2. non-relativistic
@@ -44,7 +44,7 @@ V_{\rm el-el} &= \frac{1}{2}\sum_{i \ne j}\frac{1}{|{\bf r}_i - {\bf r}_j|} &\te
 * It is quite informative to visualize $E_{\rm el}(\lbrace{\bf R}\rbrace)$ as the function of $\lbrace{\bf R}\rbrace$, which is often called **potential energy surface**.
 
 ## Dirac's braket notation
-* It is convenient to use the Dirac's "bra-ket notation" for wave functions and multi-dimensional integrals in electronic structure theory in order to simplify the notation. The equivalences are defined as
+* It is convenient to use Dirac's "bra-ket notation" for wave functions and multi-dimensional integrals in electronic structure theory to simplify the notation. The equivalences are defined as
 ```math
 \begin{align*}
 \ket{\Psi} \equiv \Psi, &\hspace{5pt} \bra{\Psi} \equiv \Psi^{*} \\
@@ -52,15 +52,15 @@ V_{\rm el-el} &= \frac{1}{2}\sum_{i \ne j}\frac{1}{|{\bf r}_i - {\bf r}_j|} &\te
 \int{d{\bf r} \Psi^{*}\hat{H}\Psi } &= \braket{\Psi|\hat{H}|\Psi}
 \end{align*}
 ```
-* The ket $\ket{\Psi}$ denotes a wave function while the bra $\bra{\Psi}$ denotes a complex conjugate wave function $\Psi^{*}$. The combined braket denotes that the whole expression should be integrated over all coordinates.
+* The ket $\ket{\Psi}$ denotes a wave function while the bra $\bra{\Psi}$ denotes a complex conjugate wave function $\Psi^{*}$. The combined bracket denotes that the whole expression should be integrated over all coordinates.
 
 ## Hartree-Fock theory - Introduction
-* Except for the simplest cases, there are no simple way to solve the SE in a closed analytical form so we have to solve it numerically.
-* The SE is a second-order partial differential equation (PDE), so in principle it can be directly solve. However, this needs integration over a large number of dimensions ($3\times N_{\rm elec}$), which is impossible.
+* Except for the simplest cases, there are no simple ways to solve the SE in a closed analytical form so we have to solve it numerically.
+* The SE is a second-order partial differential equation (PDE), so in principle, it can be directly solved. However, this needs integration over a large number of dimensions ($3\times N_{\rm elec}$), which is impossible.
 * This difficulty can be solved by two approaches
     1. Approximate the electron-electron interaction by the effective one-electron problem. This reduces the $3N$ dim. integration to a sum of 3 dim. integrations.
-    2. Expanding the wave function in some suitable basis set, as this will convert the PDE into a set of algebraic equations.
-* The methodology based on above approaches is the **Hartree-Fock-Roothaan equation**, and is the basis of modern quantum chemistry calculations.
+    2. Expanding the wave function in some suitable basis set, because this will convert the PDE into a set of algebraic equations.
+* The methodology based on the above approaches is the **Hartree-Fock-Roothaan equation** and is the basis of modern quantum chemistry calculations.
 
 ## Hartree product
 * We are mainly interested in the electronic ground state energy $E_0$.
@@ -69,10 +69,10 @@ V_{\rm el-el} &= \frac{1}{2}\sum_{i \ne j}\frac{1}{|{\bf r}_i - {\bf r}_j|} &\te
 ```math
 E_0 \le \frac{\braket{\Psi|\hat{H}|\Psi}}{\braket{\Psi|\Psi}}
 ```
-* So, the expectation value calculated by the wave function at your hand $\Psi$  will always be an upper bound for the true ground state energy. By improving $\ket{\Psi}$, you will have a lower expectation value and that is closer to the true ground state energy.
+* So, the expectation value calculated by the wave function at your hand $\Psi$  will always be an upper bound for the true ground state energy. By improving $\ket{\Psi}$, you will have a lower expectation value that is closer to the true ground state energy.
 
 ##
-* Since $V_{\rm nuc-el}$ is an effective external potential for an electron, we write it as function of $r$ and also define the one-electron Hamiltonian $\hat{h}$ as
+* Since $V_{\rm nuc-el}$ is an effective external potential for an electron, we write it as a function of $r$ and also define the one-electron Hamiltonian $\hat{h}$ as
 ```math
 \hat{v}_{\rm ext}({\bf r}) = -\sum_I \frac{Z_I}{|{\bf r} - {\bf R}_I|}, \hspace{2mm} \hat{h}({\bf r}) = -\frac{\nabla^2}{2} + \hat{v}_{\rm ext}({\bf r})
 ```
@@ -84,18 +84,18 @@ E_0 \le \frac{\braket{\Psi|\hat{H}|\Psi}}{\braket{\Psi|\Psi}}
 ```math
 \Psi_{\rm HP}({\bf r}_1, {\bf r}_2, \cdots, {\bf r}_N) = \psi_1({\bf r}_1)\psi_2({\bf r}_2)\cdots\psi_N({\bf r}_N)
 ```
-* This wave function is called **Hartree product**, and it is a first crude guess for the true $N$-electron wave function.
+* This wave function is called the **Hartree product**, and it is the first crude guess for the true $N$-electron wave function.
 * Note that $\psi_i$ is orthonormal thus $\braket{\psi_i({\bf r})|\psi_j({\bf r})} = \delta_{ij}$.
 
 ## Spatial and spin orbitals
 * The one-electron wave function $\psi_i({\bf r})$ is called the *orbital*, and the Hartree product means that $N$-electron wave function is expressed by the product of orbitals.
-* Up to now we assumed that the orbital depends only on ${\bf r}$, but an electron has the spin degree of freedom. We write this spin variable by $\omega$, and combine it with the spatial coordinate ${\bf r}$ as ${\bf x} = ({\bf r}, \omega)$.
+* Up to now, we assumed that the orbital depends only on ${\bf r}$, but an electron has the spin degree of freedom. We write this spin variable by $\omega$, and combine it with the spatial coordinate ${\bf r}$ as ${\bf x} = ({\bf r}, \omega)$.
 
 ##
 * Let the one-electron wave function in ${\bf x}$ as $\chi_i({\bf x})$.
 * Assuming that ${\bf r}$ and $\omega$ are independent, we have $\chi_i({\bf x}) = \psi_i({\bf r})\sigma_i(\omega)$, where $\psi$ and $\sigma$ denote the spatial and spin parts.
-* $\chi$, $\phi$, $\sigma$ are a spin orbital, spatial orbital, and spin function.
-* Since an electron have no chance to take both $\alpha$ and $\beta$ spin simultaneously, following integration over the spin variable holds.
+* $\chi$, $\phi$, $\sigma$ are a spin-orbital, spatial orbital, and spin function.
+* Since an electron has no chance to take both $\alpha$ and $\beta$ spin simultaneously, following integration over the spin variable holds.
 ```math
 \begin{align*}
 \int d\omega \alpha^{*}(\omega)\alpha(\omega) = 1 \\
@@ -148,17 +148,17 @@ which corresponds to the electrostatic potential of all electrons. With $\hat{v}
 ```
 
 ## Self-consistent field
-* The Hartree equation have the form of one-electron SE. However, the solutions $\chi_i({\bf x})$ enter the effective one-particle Hamiltonian via $\hat{v}_H$.
-* This dilemma can be resolved in an iterative fashion: One starts with some initial guess for the wave functions which enter the effective one particle Hamiltonian. The Hartree equations are then solved and a new set of solutions are determined.
-* This cycle is repeated so often until the iterations no longer modify the solutions, i.e. self-consistency is reached. Such method is known as **self-consistent field (SCF)** method.
+* The Hartree equation has the form of one-electron SE. However, the solutions $\chi_i({\bf x})$ enter the effective one-particle Hamiltonian via $\hat{v}_H$.
+* This dilemma can be resolved by using an iterative algorithm: One starts with some initial guess for the wave functions that form the effective one-particle Hamiltonian. The Hartree equations are then solved and a new set of solutions are determined.
+* This cycle is repeated so often until the iterations no longer modify the solutions, i.e. self-consistency is reached. Such a method is known as the **self-consistent field (SCF)** method.
 
 ## Hartree-Fock method
-* The Hartree product obeys the Pauli' exclusion principle only to some extent.
+* The Hartree product obeys Pauli' exclusion principle only to some extent.
 * In the Hartree product wave function, each electronic state is occupied by one electron. However, it does not take into account the anti-symmetry character of the wave function, which is also required by the Pauli principle. 
-* This requires that the sign of wave function should change when two electrons are exchanged; this is anti-symmetric charactor of the electronic wave function.
+* This requires that the sign of the wave function should change when two electrons are exchanged; this is the anti-symmetric character of the electronic wave function.
 
 ## Slater determinant
-* The anti-symmetric problem can be fixed by replacing the product of the one-electron wave function by the determinant of them. This is called a **Slater determinant**, and it has the form of
+* The anti-symmetric problem can be fixed by replacing the product of the one-electron wave function with the determinant of them. This is called a **Slater determinant**, and it has the form of
 ```math
 \Psi({\bf x}_1, {\bf x}_2, \cdots {\bf x}_N) 
 = \frac{1}{\sqrt{N!}}
@@ -168,7 +168,7 @@ which corresponds to the electrostatic potential of all electrons. With $\hat{v}
 \chi_N({\bf x}_1) & \cdots & \chi_N({\bf x}_N) \\
 \end{vmatrix}
 ```
-* For example in two-electron case,
+* For example in the two-electron case,
 ```math
 \begin{align*}
 \Psi({\bf x}_1,{\bf x}_2) &= \chi_1({\bf x}_1)\chi_2({\bf x}_2) & &\text{(Hatree product)} \\
@@ -190,6 +190,11 @@ which corresponds to the electrostatic potential of all electrons. With $\hat{v}
 \end{split}
 ```
 where Kronecker delta $\delta_{\omega_i, \omega_j}$ is coming from the integration in the spin variable.
+* The integrals aboving with four-oribtal indices are called *two-electron integrals*, and often denoted as follows:
+```math
+\int d{\bf r}d{\bf r}' \psi_i^*({\bf r})\psi_j^*({\bf r}') \frac{1}{|{\bf r}-{\bf r}'|} \psi_k({\bf r})\psi_l({\bf r}') = \braket{ij|kl}
+```
+* Thus the above two integrals can be detoted as $\braket{ij|ij}$ and $\braket{ij|ji}$.
 
 ##
 * Just like the Hartree equation, we minimize the expectation value with respect to $\psi^{*}$ under the constraint of normalization. This gives the **Hartree-Fock equation** as
@@ -198,8 +203,8 @@ where Kronecker delta $\delta_{\omega_i, \omega_j}$ is coming from the integrati
 \left[ \hat{h} + \hat{v}_H({\bf r}) \right] \psi_i({\bf r}) -\sum_{j \ne i}\int d{\bf r}' \frac{1}{|{\bf r} - {\bf r}'|}\psi_j^*({\bf r}')\psi_i({\bf r}')\psi_j({\bf r}) = \epsilon_i \psi_i({\bf r})
 \end{align*}
 ```
-* The last term of the left-hand side corresponds to the *exchange interaction* of electrons, as it exchanges $\psi_i$ into $\psi_j$ when it applies to $\phi_i$. This term arises by replacing the Hartree product into the determinant, and has purely quantum-mechanical character (no classical-mechanics interpretation)
-* $\delta_{\omega_i, \omega_j}$ in this term means that the exchange interaction is only present among the electrons of same spin.
+* The last term of the left-hand side corresponds to the *exchange interaction* of electrons, as it exchanges $\psi_i$ into $\psi_j$ when it applies to $\phi_i$. This term arises by replacing the Hartree product into the determinant, and this has purely quantum-mechanical character (no classical-mechanics interpretation)
+* $\delta_{\omega_i, \omega_j}$ in this term means that the exchange interaction is only present among the electrons of the same spin.
 * By using the *Fock operator* $\hat{f}$, the HF equation becomes
 ```math
 \hat{f}({\bf x})\chi({\bf x}) = \epsilon_i \chi({\bf x})
@@ -210,7 +215,7 @@ where Kronecker delta $\delta_{\omega_i, \omega_j}$ is coming from the integrati
 ```math
 \chi_i({\bf x}) = \sum_{\mu=1}^K C_{\mu i}\tilde{\chi}_{\mu}({\bf x})
 ```
-* Where $C_{\mu i}$ is the expansion coefficient. Lets' introduce the overlap and Fock integrals
+* Where $C_{\mu i}$ is the expansion coefficient. Let's introduce the overlap and Fock integrals
 ```math
 S_{\mu \nu} = \int d{\bf x} \tilde{\chi}_{\mu}({\bf x}) \tilde{\chi}_{\nu}({\bf x}), \ \  
 F_{\mu \nu} = \int d{\bf x} \tilde{\chi}_{\mu}({\bf x}) \hat{f}({\bf x}) \tilde{\chi}_{\nu}({\bf x})
@@ -228,8 +233,8 @@ F_{\mu \nu} = \int d{\bf x} \tilde{\chi}_{\mu}({\bf x}) \hat{f}({\bf x}) \tilde{
     1. Slater type functions: $\exp(-\alpha r_{iI})$
     2. Gaussian type functions: $\exp(-\alpha r_{iI}^2)$. 
 * $\alpha$ is the exponent of the function and $r_{iI}$ is the distance between the electron $i$ and the nucleus $I$.
-* The Gaussian type function is more often used because they allow the analytic evaluation of the matrix elements necessary to perform an electronic structure calculation.
-* In GAUSSIAN, only the Gaussian type function is used.
+* The Gaussian type function is more often used because it allows the analytic evaluation of the matrix elements necessary to perform an electronic structure calculation.
+* In GAUSSIAN, only the Gaussian-type function is used.
 
 ## Electron correlation
 * The Hartree-Fock method generates solutions to the Schrodinger equation where the real electron-electron interaction is replaced by an average interaction.
@@ -265,7 +270,7 @@ J[\rho] = \frac{1}{2}\int\int\frac{\rho({\bf r})\rho({\bf r'})}{|{\bf r} - {\bf 
 
 ##
 
-* Here, the factor of 1/2 in $J[\rho]$ allows the integration to be done over all space fo both ${\bf r}$ and ${\bf r'}$ variables. Unlike these energy components, exchange part $K[\rho]$ can only be interpreted by the quantum mechanics.
+* Here, the factor of 1/2 in $J[\rho]$ allows the integration to be done over whole space fo both ${\bf r}$ and ${\bf r'}$ variables. Unlike these energy components, exchange part $K[\rho]$ can only be interpreted by quantum mechanics.
 * Early attempts of deducing functionals for the kinetic and exchange energies considered a uniform electrons gas where it may be shown that $T[\rho]$ and $K[\rho]$ are given by Thomas, Fermi, and Dirac as
 ```math
 \begin{align*}
@@ -275,7 +280,7 @@ J[\rho] = \frac{1}{2}\int\int\frac{\rho({\bf r})\rho({\bf r'})}{|{\bf r} - {\bf 
 \end{align*}
 ```
 
-* Since $T[\rho]$ and $K[\rho]$ functionals are depending directly on the electron density, these methods are called *orbital-free DFT*, as opposed to the Kohn-Sham theory discussed in the next section.
+* Since $T[\rho]$ and $K\rho$ functionals depend directly on the electron density, these methods are called *orbital-free DFT*, as opposed to the Kohn-Sham theory discussed in the next section.
 * Unfortunately, the accuracy of the orbital-free DFT is too low to be of general use.
 
 ## Kohn-Sham theory
@@ -294,17 +299,17 @@ H_{\lambda} = {\bf T} + {\bf V}_{ext}(\lambda) + \lambda {\bf V}_{ee}
 ```math
 T_{KS} = \sum_i^{N_{el}}\braket{\phi_i|-\frac{\nabla^2}{2}|\phi_i}
 ```
-* In reality the $\lambda$ is 1 so above is only an approximation to the real kinetic energy.
-* The key to Kohn-Sham theory is to calculate the kinetic energy under the assumption of non-interacting electrons.
+* In reality, the $\lambda$ is 1 so above is only an approximation to the real kinetic energy.
+* The key to the Kohn-Sham theory is to calculate the kinetic energy under the assumption of non-interacting electrons.
 * The remaining kinetic energy is absorbed into an exchange-correlation term, and a general DFT energy expression can be written as
 ```math
 E_{DFT}[\rho] = T_{KS}[\rho] + E_{ne}[\rho] + J[\rho] + E_{XC}[\rho]
 ```
 
 ## Gradient methods and molecular property
-* Once the electronic energy is obtained by solving the electronic Schrodinger equation, a number of molecular properties, perhaps the most important being the equilibrium molecular geometry, can be determined.
+* Once the electronic energy is obtained by solving the electronic Schrodinger equation, many molecular properties, perhaps the most important being the equilibrium molecular geometry, can be determined.
 * The calculation of molecular or crystal structures is a variable supplement to experimental data in areas of structural chemistry such as X-ray crystallography, electron diffraction, and microwave spectroscopy.
-* Calculation of derivatives of the potential energy with respect to nuclear coordinates is crucial to the efficient determination of equilibrium structures.
+* Calculation of derivatives of the potential energy for nuclear coordinates is crucial to the efficient determination of equilibrium structures.
 * The derivatives can be computed numerically by calculating the potential energy at many geometries and determining the change in energy as each nuclear coordinate is varied.
 
 ## Energy derivatives
@@ -317,29 +322,29 @@ f_i = -\frac{\partial E}{\partial q_i} = 0 \ \text{(for all i)}
 * Therefore, in principle, the equilibrium geometry can be found by computing all the forces at a given molecular geometry and seeing if they vanish.
 
 ## Hessian
-* A zero gradient characterizes a stationary point on the surface, but does not tell whether it is minima, maxima, or saddle points.
+* A zero gradient characterizes a stationary point on the surface but does not tell whether it is a minima, maxima, or saddle point.
 * To distinguish the types of stationary points, it is necessary to consider the second derivatives of the energy with respect to the nuclear coordinates.
 * The quantities $\partial^2 E/ \partial q_i \partial q_j$ comprise the **Hessian or Hesse matrix**.
 * A maximum (minimum) of a multi-dimensional potential energy surface is characterized by the eigenvalues of the Hessian all being positive (negative).
-* A transition state (a first-order saddle point) correspond to one negative eigenvalue and all the rest positive.
+* A transition state (a first-order saddle point) corresponds to one negative eigenvalue and all the rest positive.
 
 ## Transition state
 * The transition state (TS) is a point on the PES connecting the two energy minima.
-* A clear example of this is that the bond dissociation or formation process (Fig.X).
+* A clear example of this is the bond dissociation or formation process (Fig.X).
 * The minimum at right corresponds to the state that has the O-H bond in this example, while the left minimum corresponds to the state with N-H bond.
-* There is a saddle point between them, and the activation energy ($E_a$) can be measured by the energy difference between minima and the saddle point.
+* There is a saddle point between them, and the activation energy ($E_a$) can be measured by the energy difference between the minima and the saddle point.
 
 ## Activation energy 
-* When wa have the $E_a$, we can calculate the rate constant of the chemical reaction by Arrhenius equation as
+* When we have the $E_a$, we can calculate the rate constant of the chemical reaction by the Arrhenius equation as
 ```math
 k = A\exp\left(-\frac{E_a}{RT}\right)
 ```
 where $A$ is the pre-exponential factor and $R$ is the gas constant.
-* $A$ is less dependent to molecular species, but $E_a$ is highly dependent.
-* Therefore obtaining the transition state structure is critically important topic in the chemical reaction.
+* $A$ is less dependent on molecular species, but $E_a$ is highly dependent.
+* Therefore obtaining the transition state structure is a critically important topic in the chemical reaction.
 
 ## Thermodynamics
-* The important thermodynamics quantities such as enthalpy, entropy, Gibbs free energy has contributions from translational, electronic, rotational, and vibrational motions of molecules.
+The important thermodynamic quantities such as enthalpy, entropy, and Gibbs free energy have contributions from translational, electronic, rotational, and vibrational motions of molecules.
 * To calculate them, the partition function $q(V,T)$ is needed.
 * From $q(V,T)$ to these quantities, the entropy $S$, internal energy $E$, and heat capacity $C_V$ is obtained as
 ```math
@@ -368,38 +373,50 @@ q_{\rm{vib}} &= \prod_i \frac{\exp(-\Theta_i/2T)}{1-\exp(-\Theta_i/T)} &
 ```
 
 ## Excited state
+* An excited state is a quantum state of the system (atoms or molecules) that has a higher energy than the ground state.
+* Since the system has electronic, vibronic, rotational, and translational motions and all of them are quantized, so they have ground and excited states.
+* Here we will limit to the electronic ground and excited state, which is usually induced by absorbing the energy of light.
+
+## Wavefunction theory for excited state
 * The simplest description of an excited state is the orbital picture where one electron has been moved from an occupied to an unoccupied orbital.
 * The lowest level of theory for a qualitative description of excited states is therefore configuration interaction (CI) including only the singly-excited determinants, denoted CIS.
 
-* The Hohenberg-Kohn theorem only holds for electron densities describing the time-independent ground state.
-* The Runge-Gross theorem states that the unique one-to-one correspondence between an external potential and the electron density holds both in time-dependent and time-independent cases.
+<p align=center>
+<img src="./fig/cis.png" width=40%>
+
+Fig. Electron occupation in the Hatree-Fock, singly-excited, and doubly-excited configurations. The Hatree-Fock and singly-excited configuration can be used as the simplest representation for the ground and excited state wavefunction, respectively.
+
+</p>
+
+## Density functional theory for excited state
+* The **Runge-Gross theorem** states that the unique one-to-one correspondence between an external potential and the electron density holds in time-dependent cases (time-dependent version of the Hohenberg-Kohn theorem).
 * Time time-dependent Schrodinger equation can be written as
-$$
+```math
 \begin{align*}
 i\frac{\partial}{\partial t}\Psi({\bf r},t) = \hat{H}({\bf r},t)\Psi({\bf r},t) \\
 \hat{H}({\bf r},t) = \hat{H}_0({\bf r}) + \hat{V}_{ext}({\bf r},t)
 \end{align*}
-$$
-* Here the petrubation is consists of a time-dependent external electric potential.
-* We will assume that the time-independent part ($\hat{H}_0$) has been solved.
+```
+* Here the perturbation $V_{ext}$ consists of a time-dependent external electric potential.
+* We will assume that the time-independent part $\hat{H}_0$ has been solved.
 
 ## Time-dependent Hatree-Fock and time-dependent Kohn-Sham
-* If the wave function consists of a single Slater determinant composed of molecular orbitals, the time-dependent Schrodinger equation results in a time-dependent Hatree-Fock (TDHF) equations for the orbitals, which must be solved self-consistently.
-$$
+* If the wave function consists of a single Slater determinant composed of molecular orbitals, the time-dependent Schrodinger equation results in a time-dependent Hatree-Fock (TDHF) equation for the orbitals, which must be solved self-consistently.
+```math
 i\frac{\partial}{\partial t}\phi_i({\bf r},t) = (\hat{F} + \hat{V}_{ext})\phi_i({\bf r},t)
-$$
-where $\hat{F}$ is the Fock operator.
+```
+* Here $\hat{F}$ is the Fock operator.
 * Since the Hatree-Fock equation and the Kohn-Sham equation is similar, so time-dependent Kohn-Sham equation can be composed similarly. This approach is called time-dependent DFT (TDDFT).
 
 ## Linear response
-* The most common application of the TDHF/TDDFT is in the regime of weak perturbattion. In this case, the response of wave function or electron density is approximated to be linear to the perturbation (linear response).
+* The most common application of the TDHF/TDDFT is in the regime of weak perturbation. In this case, the response of wave function or electron density is approximated to be linear to the perturbation (linear response).
 * The perturbation is usually an oscillating electric field, which in the dipole approximation can be written as 
-$$
+```math
 \hat{V}_{ext}({\bf r},t) = \mu F \cos(\omega t)
-$$
-where $\omega$ is the frequency, $F$ is the strength of the field, and $\mu$ is the dipole operator.
+```
+* Here $\omega$ is the frequency, $F$ is the strength of the field, and $\mu$ is the dipole operator.
 * The general problem of determining the wave function or electron density response to a time-dependent perturbation can be expressed as
-$$
+```math
 \left(
     \begin{bmatrix}
     {\bf A}   & {\bf B} \\
@@ -418,19 +435,19 @@ $$
 \begin{bmatrix}
 {\bf P} \\ {\bf P}^*
 \end{bmatrix}
-$$
-where
-$$
+```
+* Here, $A$ and $B$ matrix elements are expressed by the orbital energies ($\epsilon$) and the two-electron integrals of occupied (labeled $i$ and $j$) and unoccupied ($a$ and $b$) determinants:
+```math
 \begin{align*}
 & A_{ij}^{ab} = \braket{\Psi_i^a|\hat{H}_0|\Psi_j^b} - E_0\delta_{ij}\delta_{ab}
 = \delta_{ij}\delta_{ab}(\epsilon_a - \epsilon_i) + \braket{ij|ab} - \braket{ia|jb} \\
 & B_{ij}^{ab} = \braket{\Psi|\hat{H}_0|\Psi_{ij}^{ab}} = \braket{ij|ab} - \braket{ij|ba} \\
 & P_i^a = \braket{i|{\bf r}|a}
 \end{align*}
-$$
+```
 * ${\bf Y}$ and ${\bf Z}$ vectors represent the real and imaginary parts of the first-order response.
 * Making several approximations, this becomes
-$$
+```math
 \begin{bmatrix}
 {\bf A} & 0 \\
 0       & {\bf A}^*
@@ -447,5 +464,5 @@ $$
 \begin{bmatrix}
 {\bf Y} \\ {\bf Z}
 \end{bmatrix}
-$$
-* This is the working equation in the TDHF/TDDFT calculations. $\omega$ gives the excitation energy, and ${\bf Y}$ and ${\bf Z}$ vectors gives the excitation nature (such as molecular orbital contribution to the excitation).
+```
+* This is the working equation in the TDHF/TDDFT calculations. $\omega$ gives the excitation energy, and ${\bf Y}$ and ${\bf Z}$ vectors give the excitation nature (such as molecular orbital contribution to the excitation).

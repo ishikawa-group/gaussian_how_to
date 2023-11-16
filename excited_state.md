@@ -15,11 +15,12 @@ H  -0.464   1.137   0.000
 H   0.441  -0.143   0.000
 
 ```
-* To do the configuration interaction singles (CIS) calculation, use `CIS` in the route section. In fact, the CIS and TDHF is equivalent so it gives the almost same result.
+* Specifying the DFT functional in the route section and giving `TD` will perform the TDDFT calculation. So `# B3LYP/6-31G TD` will do the TDDFT calculation using B3LYP functional.
+* To do the configuration interaction singles (CIS) calculation, use `CIS` in the route section. The CIS and TDHF are equivalent so it gives the almost same result.
 
 ### Options
-* `NStates=M`: The number of excited states. Default values is 3, so in most cases you need to increase this value. Use like `TD(NStates=10)`.
-* `Singlets`: Solves for the spin-singlet cases. This is default for closed shell systems.
+* `NStates=M`: The number of excited states. The default value is 3, so in most cases, you need to increase this value. Use like `TD(NStates=10)`.
+* `Singlets`: Solves for the spin-singlet cases. This is the default for closed-shell systems.
 * `Triples`: Solves for the spin-triplet cases.
 
 ## Analyzing results
@@ -42,8 +43,8 @@ H   0.441  -0.143   0.000
       67 -> 71        -0.31726
 ```
 * The character and number following the `Excited state   1:` is the character of the excitation and the excitation energy. The `f` is the oscillator strength, so only non-zero excitations can be observed experimentally.
-* The line like `61 -> 68         0.10770` shows the nature of the excited state. The integer (61 and 68 in this case) is the MO number, so the excitation 1 is mainly occurs via the excitation from 67th MO to 68th MO.
+* The line like `61 -> 68         0.10770` shows the nature of the excited state. The integer (61 and 68 in this case) is the MO number, so the excitation 1 mainly occurs via the excitation from 67th MO to 68th MO.
 
 ### UV-Vis spectrum
-* With GaussView, you can plot the UV-Vis spectrum from output file: `Results` -> `UV-Vis`.
+* With GaussView, you can plot the UV-Vis spectrum from the output file: `Results` -> `UV-Vis`.
 * You can save the text file: `Plots` -> `Save Data`.
