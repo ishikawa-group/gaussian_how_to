@@ -1,7 +1,8 @@
 # Energy calculation
 * In this lecture, we will see how to do a single-point energy calculation with Gaussian.
-* An input file should `.com` or `.gjf` extension. Here we will use `.com` in the lecture.
+* In each file, the section with asterisk (\*) is for advanced user. Beginners can skip them.
 
+* An input file should `.com` or `.gjf` extension. Here we will use `.com` in the lecture.
 * Input example (named `h2o.com`, for example)
 ```
 # HF/6-31G
@@ -37,6 +38,12 @@ H   0.441  -0.143   0.000
 * Each line should have an element symbol, xyz coordinates (in angstrom unit)
 * For geometry section, there are several ways to specify the coordinate (internal coordinate, Z-matrix) but above Cartesian style is most general so we'll use it
 
+5. Submit a job
+* Edit your `script.sh` (or any) file, which includes the command like `g16 h2o.com`. (change the `h2o.com` part of the script accordingly).
+* Execute `qsub -g your_group_name script.sh`.
+* Check by `qstat` to see whether your job is running (`r`).
+* Wait untill the calculation is done. After that, analyze the result (e.g. `h2o.log`).
+
 ## Computational method
 * As stated above, the computational condition is specified by the keywords in route section.
 * The computational method such as Hartree-Fock or density functional theory (DFT) should be selected.
@@ -56,7 +63,7 @@ H   0.441  -0.143   0.000
 * ${\bf F}$ is the Fock matrix, ${\bf C}$ is the molecular orbital (MO) coefficient matrix, ${\bf S}$ is the overlap matrix, and $\epsilon$ is the orbital energy matrix.
 * ${\bf F}$ and ${\bf S}$ is given before solving the above eigenvalue problem, while ${\bf C}$ and $\epsilon$ is calculated and these makes the MOs.
 
-### Electron correlation
+### Electron correlation\*
 * The Hartree-Fock method lacks the energy component, which is called *electron correlation energy*.
 * The electron correlation is the energy contribution originating in the electron-electron repulsion, which cannot be covered by the self-consistent field method.
 * Several ways to recover the electron correlation is reported;
@@ -101,12 +108,12 @@ H   0.441  -0.143   0.000
 * For C atom, d function is added as the polarization function.
 * In Gaussian, the polarization function is represented by "\*", e.g. 6-31G -> 6-31G*.
 
-### Diffuse function
+### Diffuse function\*
 * Functions with larger exponent (thus spatially more spread) is added as diffuse function.
 * These functions are sometimes necessary, for example in anions.
 * In Gaussian, the diffuse function is represented by "+", e.g. 6-31G -> 6-31+G.
 
-### cc-pVXZ
+### cc-pVXZ\*
 * Another category of basis set often used is *correlation consistent basis set (cc-pVXZ) series*. Here X can be D(double), T(triple), Q(quadruple) or higher.
 * As its name indicates, the parametrization of this basis set is intended to cover the electron correlation effectively.
 * This basis set automatically includes the polarization function so no need to add.
@@ -152,7 +159,7 @@ H    0.441  -0.143   0.000
     * high level: SDD
 * Even higher level basis set are on EMSL basis set exchange webpage (https://www.basissetexchange.org/).
 
-### Element-wise specification of basis set
+### Element-wise specification of basis set\*
 * You can specify the different basis set for different elements. To do, you should put `gen` keyword in the route section.
 * This is called *general basis set format*.
 ```
@@ -220,11 +227,18 @@ lanl2
     * Converting SDF to Gaussian input file: `obabel -isdf test.sdf -ogjf -O test.com`
 
 ## Link-0 command
+### Number of cores and memory amount
 * In the input file, you can specify the *number of CPUs*, *amount of memory*, and the *name of the checkpoint file*.
-* Checkpoint file (.chk) is the intermediate file having the computational results. Sometimes you need to have this file for visualization or restarting the calculation.
-* Checkpoint file (binary) can be converged to *formatted checkpoint file (.fchk)* (text file) by linux command `formchk XXX.chk XXX.fchk`.
 * Usually, there is a default setting for the number of the CPUs and amount memory.
+* They can be specired like `%nprocs=X` and `%mem=XXXGB`.
 
+### Checkpoint file
+* Checkpoint file (.chk) is the intermediate file having the computational results.
+* Sometimes you need to have this file for visualization or restarting the calculation.
+* For drawing molecular orbitals (MOs), you need the fchk file.
+* Checkpoint file (binary) can be converged to *formatted checkpoint file (.fchk)* (text file) as follows (in TSUBAME environment)
+    1. `module load gaussian16`
+    2. `formchk XXX.chk XXX.fchk`
 
 ---
 
@@ -292,6 +306,15 @@ SCF Done ...
 | Avogadro  | no      | yes | easy     | yes          |
 | Avogadro2 | yes     | yes | easy     | some problem |
 | ChemCraft | yes     | no  | so-so    | yes          |
+
+### Using GaussView in TSUBAME (via X11)
+* You can use the Gaussiview on TSUBAME via using the X11 Windows system.
+* This takes time at reserving the interactive node, so *not recommended*.
+1. Check your ssh-config has `ForwardX11Trusted yes` and `Compression yes.
+2. Reserve a node by `qrsh -g your_group_name -l f_node=1 -l h_rt=00:30:00`.
+3. Set `module load gassview/6.1 gaussian16`.
+4. Set `export USE_MESALG=1`.
+5. Execute `gv &`.
 
 ---
 

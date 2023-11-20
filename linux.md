@@ -1,9 +1,3 @@
----
-marp: true
-math: mathjax
----
-<!-- headingDivider: 2 -->
-
 ## Linux-how-to
 * In Linux, you should work with *terminal*, which is CUI (character user interface), a different interface from GUI (graphical user interface).
 * The Gaussian is usually done in remote environment, because running Gaussian on your desktop/laptop is not a good idea as it demands large CPU power, memory, and hardware in/out.
@@ -22,8 +16,7 @@ math: mathjax
     4. After installation is done, open `Ubuntu` in Application.
 
 * When above doesn't work, check "Windows の機能の有効化、または無効化", then "Linux 用 Windows サブシステム", "仮想マシンプラットフォーム" is ON.
-
-##
+* Note that WSL makes home directory (`/home/your_name`) which is different from the Windows user directory (`C:\Users\your_name`).
 * You can access Windows system from Ubuntu like: `cd` to Desktop by `cd /mnt/c/Users/your_name/Desktop/`.
 * It is useful to make symbolic link between Ubuntu and Windows like
     ```bash
@@ -44,6 +37,7 @@ math: mathjax
     + `~/.ssh/id_rsa` (private key)
     + `~/.ssh/id_rsa.pub` (public key)
 * After generating this, you should upload the public key to the remove environment. Keep a private key to your local environment.
+* For Windows users: note that the ssh key is usually generated on the WSL home directory (`/home/yourn_user_name`). This different from the Windows home directory.
 
 ## Public key upload
 1. Login a portal site with your internet browser.
@@ -61,7 +55,10 @@ math: mathjax
         HostName login.t3.gsic.titech.ac.jp
         User your_name
         IdentityFile /Users/your_name/.ssh/id_rsa_tsubame
+        ForwardX11Trusted yes
+        Compression yes
     ```
+* Last two lines are necessary when you use the GaussView on TSUBAME (so if you don't use it you can skip these lines).
 * After that, you can login TSUBAME by `ssh tsubame`.
 
 ## Basic linux commands
@@ -78,8 +75,6 @@ math: mathjax
 * Here in this course we will use `vi`.
 * You can use these editors in the remote environment.
 * If you don't want to use vi/emacs, copy your target file to local PC and then use your favorite editor, then send it back to remote environment.
-
-##
 * However, your editor should output the text file with Linux-compatible newline code.
 * Newline code depends on the OS (operating system).
     * Linux and Mac (after Mac OS X): LF(Line Feed)
@@ -102,7 +97,10 @@ math: mathjax
 ## scp
 * After making a ssh-login environment, you can use `scp` (means secure copy) to send/take file from/to remote environment.
     * send: `scp your_file login_node:directory`
+        * e.g. sending Gaussian input file (in the current directory) to TSUBAME: `scp h2o.com tsubame@/home/1/ABCD1234/gaussian`
     * take: `scp login_node:directory your_local_directory`
+        * e.g. getting Gaussian output file in TSUBAME to your local computer: `scp tsubame@/home/1/ABCD1234/gaussian/h2o.log ./`
 
 ## submitting jobs
-* See "tsubame.md" for details.
+* Edit your script file (e.g. `script.sh`) and execute `qsub -g your_group_name script.sh`.
+* For details, see "tsubame.md" for details.
