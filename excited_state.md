@@ -42,8 +42,10 @@ H   0.441  -0.143   0.000
       65 -> 68        -0.29767
       67 -> 71        -0.31726
 ```
-* The character and number following the `Excited state 1:` is the character of the excitation and the excitation energy. The `f` is the oscillator strength, so only non-zero excitations can be observed experimentally.
+* The character and number following the `Excited state 1:` is the character of the excitation and the excitation energy.
+* The `f` is the dimension-less quantity called **oscillator strength**. This measures the strength of transition, so only non-zero excitations can be observed experimentally.
 * The line like `61 -> 68  0.10770` shows the nature of the excited state. The integer (61 and 68 in this case) is the MO number, so the excitation 1 mainly occurs via the excitation from 67th MO to 68th MO.
+* The values like 0.10770 tell the coefficient for the transition. It can take both positive and negative numbers, and its absolute value tells the contribution of the transition.
 
 ### UV-Vis spectrum
 * With GaussView, you can plot the UV-Vis spectrum from the output file: `Results` -> `UV-Vis`.

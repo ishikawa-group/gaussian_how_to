@@ -55,11 +55,20 @@
         HostName login.t3.gsic.titech.ac.jp
         User your_name
         IdentityFile /Users/your_name/.ssh/id_rsa_tsubame
-        ForwardX11Trusted yes
-        Compression yes
     ```
-* Last two lines are necessary when you use the GaussView on TSUBAME (so if you don't use it you can skip these lines).
 * After that, you can login TSUBAME by `ssh tsubame`.
+
+#### extra options
+* You should add following options when you use the GaussView on TSUBAME (so if you don't use it you can skip these lines).
+    ```bash
+    ForwardX11Trusted yes
+    Compression yes
+    ```
+* If you don't like the auto-logout from ssh, add following.
+    ```bash
+    ServerAliveInterval 60
+    ServerAliveCountMax 30
+    ```
 
 ## Basic linux commands
 * `cd`: To change the current directory, `cd target_dir`. Note that `target_dir` should be a directory, not a file. Going upper directory, do `cd ..`.
