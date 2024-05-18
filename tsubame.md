@@ -1,9 +1,3 @@
----
-marp: true
-math: mathjax
----
-<!-- headingDivider: 2 -->
-
 ## TSUBAME
 * In the following, we assume as the user is the Tokyo-tech student or employee.
 
