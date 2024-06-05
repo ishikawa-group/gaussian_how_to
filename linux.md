@@ -1,7 +1,7 @@
 ## Linux-how-to
 * In Linux, you should work with *terminal*, which is CUI (character user interface), a different interface from GUI (graphical user interface).
-* The Gaussian is usually done in remote environment, because running Gaussian on your desktop/laptop is not a good idea as it demands large CPU power, memory, and hardware in/out.
-* Thus it is recommended to run the Gaussian on supercomputers. Here, we mainly use TSUBAME4.0, a Tokyo-Tech supercomputer.
+* The Gaussian/VASP is usually done in remote environment, because running Gaussian/VASP on your desktop/laptop is not a good idea as it demands large CPU power, memory, and hardware in/out.
+* Thus it is recommended to run the Gaussian/VASP on supercomputers. Here, we mainly use TSUBAME, a Tokyo-Tech supercomputer.
 * The usage of TSUBAME is introduced later. First, we will look into the basic linux commands.
 
 ## Linux environment setup
