@@ -16,6 +16,7 @@
     4. After installation is done, open `Ubuntu` in Application.
 
 * When above doesn't work, check "Windows の機能の有効化、または無効化", then "Linux 用 Windows サブシステム", "仮想マシンプラットフォーム" is ON.
+* If you face "Error: 0x800701bc", visit https://aka.ms/wsl2kernel and download a file.
 * Note that WSL makes home directory (`/home/your_name`) which is different from the Windows user directory (`C:\Users\your_name`).
 * You can access Windows system from Ubuntu like: `cd` to Desktop by `cd /mnt/c/Users/your_name/Desktop/`.
 * It is useful to make symbolic link between Ubuntu and Windows like
