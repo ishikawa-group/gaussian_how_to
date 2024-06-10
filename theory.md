@@ -1,12 +1,3 @@
-<!--
----
-marp: true
-math: katex
----
--->
-
-<!-- headingDivider: 2 -->
-
 ## Why quantum chemistry?
 * The behavior of the particles is governed by the equation of motion, and its classical mechanical version is known as Newton's law.
 * The proper description of atoms, molecules, and electrons is given by the laws of quantum mechanics. For this reason, we need to consider the **Schrödinger equation**, which is a quantum-mechanical equation of motion.
@@ -190,7 +181,7 @@ which corresponds to the electrostatic potential of all electrons. With $\hat{v}
 \end{split}
 ```
 where Kronecker delta $\delta_{\omega_i, \omega_j}$ is coming from the integration in the spin variable.
-* The integrals aboving with four-oribtal indices are called *two-electron integrals*, and often denoted as follows:
+* The integrals above with four-oribtal indices are called *two-electron integrals*, and often denoted as follows:
 ```math
 \int d{\bf r}d{\bf r}' \psi_i^*({\bf r})\psi_j^*({\bf r}') \frac{1}{|{\bf r}-{\bf r}'|} \psi_k({\bf r})\psi_l({\bf r}') = \braket{ij|kl}
 ```

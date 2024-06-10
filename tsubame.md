@@ -1,13 +1,13 @@
-## TSUBAME
+# TSUBAME
 * In the following, we assume as the user is the Tokyo-tech student or employee.
 
-## Making account
+# Making account
 1. Login to the Tokyo-tech portal, and click "TSUBAME portal"
 2. Fill the required fields
 3. E-mail comes in moment, and the click the URL in the mail
 4. Confirm the account name
 
-## ssh key generation
+# ssh key generation
 1. Open the terminal in mac/windows-wsl and type `ssh-keygen`
 2. Specify the name of public key
 3. Set your passphrase if you like
@@ -24,31 +24,32 @@
     ```
 9. You can login TSUBAME by `ssh tsubame`.
 
-## Getting resources
+# Getting computational resources
 * You need to make a group to get computational resources.
+* This section involves the budget payment procedures, so often only instructors need to manage them.
 
-### Making group
+## Making group
 1. login to "TSUBAME-portal"
 2. click the making group, and fill the required fields
 3. you can manage the groups with "managing the group" -> "detail"
 
-### Payment procedure
-#### Registering purchase code
+## Payment procedure
+### Registering purchase code
 1. you need the "purchase code" for paying the points
 2. click "managing the purchase code" --> "apply for the new purchase code"
 3. fill the required fields
 4. wait
 5. the purchase code will be issued, and then fill the budget information from "managing the group"
 
-#### Purchasing points
+### Purchasing points
 1. login to the TSUBAME portal
 2. click "managing the group"
 3. select the belonging groups
 4. click "detail"
 5. purchasing points
 
-## Submitting jobs
-### Normal
+# Submitting jobs
+## Normal
 * You can execute your calculation as *jobs* to the supercomputer.
 * Supercomputer queuing system takes care of your (and also others') jobs.
 * To register your job, execute: `qsub -g [group_name] script.sh`
@@ -68,17 +69,19 @@
     g16 h2o.com
     ```
 
-### Using booked node
+<!--
+## Using booked node
 * You can book the nodes via TSUBAME portal.
 * With booked nodes (AR_ID should be given), you can submit jobs by
 `qsub -g [group_name] -ar [AR_ID] script.sh`.
+-->
 
-## Confirming jobs
+# Confirming jobs
 * To confirm your job status, type: `qstat`.
 * Job states
     * `qw`: waiting for run
     * `r` : running
     
-## Stopping jobs
+# Stopping jobs
 * To stop your jobs, type: `qdel [JOB_ID]`.
 * To know the JOB_ID, do `qstat`.
