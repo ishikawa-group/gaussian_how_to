@@ -22,7 +22,7 @@
         User your_name
         IdentityFile /Users/your_name/.ssh/id_rsa_tsubame
     ```
-9. You can login TSUBAME by `ssh tsubame`.
+9. You can login TSUBAME by `ssh tsubame`
 
 # Getting computational resources
 * You need to make a group to get computational resources.
@@ -55,26 +55,55 @@
 * To register your job, execute: `qsub -g [group_name] script.sh`
     * If you don't specify the group name, the job will be a trial-run so it stops in 1 hour.
 * The `script.sh` file contains the procedure of your calculation.
-* An example of `script.sh` for running Gaussian is (input file: `h2o.com`)
+* Eexamples of scripts are as follows:
+    + Gaussian: input file is `h2o.com`
     ```bash
     #!/bin/bash
     #$ -cwd
-    #$ -l f_node=1
+    #$ -l node_o=1
     #$ -l h_rt=00:10:00
     #$ -V
 
-    . /etc/profile.d/modules.sh
+    source /etc/profile.d/modules.sh
     module load gaussian16
 
-    g16 h2o.com
+    INP="h2o.com"
+    PRG="g16"
+
+    ${PRG} ${INP}
+    ```
+    + VASP
+    ```bash
+    #!/bin/sh
+    #$ -cwd
+    #$ -l node_o=1
+    #$ -l h_rt=0:10:00
+    #$ -N flatmpi
+
+    source /etc/profile.d/modules.sh
+
+    module load intel
+    module load intel-mpi
+
+    PRG="/home/1/uk02411/vasp/vasp.6.4.3/bin/vasp_std"
+
+    mpiexec.hydra -ppn 1 -n 1 ${PRG} >& stdout
     ```
 
-<!--
-## Using booked node
-* You can book the nodes via TSUBAME portal.
-* With booked nodes (AR_ID should be given), you can submit jobs by
-`qsub -g [group_name] -ar [AR_ID] script.sh`.
--->
+* You need to specify the **resource type** from the following table. The full list can be found in https://www.t4.gsic.titech.ac.jp/docs/handbook.ja/jobs/
+
+|  name  | #CPU | #GPU | Memory (GB) | Meaning         |
+| :----: | :--- | :--- | :---------- | :-------------- |
+| node_f | 192  | 4    | 768         | Using full node |
+| node_h | 96   | 2    | 384         | Using half node |
+| node_q | 48   | 1    | 192         | Using 1/4 node  |
+| node_o | 24   | 1/2  | 96          | Using 1/8 node  |
+| cpu_40 | 40   | 0    | 92          | Only CPU        |
+| cpu_16 | 16   | 0    | 36.8        | Only CPU        |
+| cpu_8  | 8    | 0    | 18.6        | Only CPU        |
+| cpu_4  | 4    | 0    | 9.2         | Only CPU        |
+
+* Write the "name" to the above jobscript of `#$ -l f_node=N`, where N is the number of the specified node type.
 
 # Confirming jobs
 * To confirm your job status, type: `qstat`.
@@ -85,3 +114,9 @@
 # Stopping jobs
 * To stop your jobs, type: `qdel [JOB_ID]`.
 * To know the JOB_ID, do `qstat`.
+
+# Storage
+* Each user has `$HOME` directory, which has 25GB.
+* Users can purchase (from TSUBAME portal) the following strages for the group usage.
+    + `/gs/fs/GROUP_NAME/`: SSD (fast access)
+    + `/gs/bs/GROUP_NAME/`: HDD (fast access)
