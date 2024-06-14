@@ -53,7 +53,7 @@
 * You can execute your calculation as *jobs* to the supercomputer.
 * Supercomputer queuing system takes care of your (and also others') jobs.
 * To register your job, execute: `qsub -g [group_name] script.sh`
-    * If you don't specify the group name, the job will be a trial-run so it stops in 1 hour.
+    + If you don't specify the group name, the job will be a trial-run so it stops in 1 hour.
 * The `script.sh` file contains the procedure of your calculation.
 * Eexamples of scripts are as follows:
     + Gaussian: input file is `h2o.com`
@@ -90,18 +90,22 @@
     mpiexec.hydra -ppn 1 -n 1 ${PRG} >& stdout
     ```
 
-* You need to specify the **resource type** from the following table. The full list can be found in https://www.t4.gsic.titech.ac.jp/docs/handbook.ja/jobs/
+* You need to specify the **resource type** from the following table. The list can be found in https://www.t4.gsic.titech.ac.jp/docs/handbook.ja/jobs/
 
-|  name  | #CPU | #GPU | Memory (GB) | Meaning         |
-| :----: | :--- | :--- | :---------- | :-------------- |
-| node_f | 192  | 4    | 768         | Using full node |
-| node_h | 96   | 2    | 384         | Using half node |
-| node_q | 48   | 1    | 192         | Using 1/4 node  |
-| node_o | 24   | 1/2  | 96          | Using 1/8 node  |
-| cpu_40 | 40   | 0    | 92          | Only CPU        |
-| cpu_16 | 16   | 0    | 36.8        | Only CPU        |
-| cpu_8  | 8    | 0    | 18.6        | Only CPU        |
-| cpu_4  | 4    | 0    | 9.2         | Only CPU        |
+|  name   | #CPU | #GPU | Memory (GB) | Meaning         |
+| :-----: | :--- | :--- | :---------- | :-------------- |
+| node_f  | 192  | 4    | 768         | Using full node |
+| node_h  | 96   | 2    | 384         | Using half node |
+| node_q  | 48   | 1    | 192         | Using 1/4 node  |
+| node_o  | 24   | 1/2  | 96          | Using 1/8 node  |
+|  gpu_1  | 8    | 1    | 96          | Only GPU        |
+|  gpu_h  | 4    | 1/2  | 48          | Only GPU        |
+| cpu_160 | 160  | 0    | 368         | Only CPU        |
+| cpu_80  | 80   | 0    | 184         | Only CPU        |
+| cpu_40  | 40   | 0    | 92          | Only CPU        |
+| cpu_16  | 16   | 0    | 36.8        | Only CPU        |
+|  cpu_8  | 8    | 0    | 18.6        | Only CPU        |
+|  cpu_4  | 4    | 0    | 9.2         | Only CPU        |
 
 * Write the "name" to the above jobscript of `#$ -l f_node=N`, where N is the number of the specified node type.
 
@@ -120,3 +124,4 @@
 * Users can purchase (from TSUBAME portal) the following strages for the group usage.
     + `/gs/fs/GROUP_NAME/`: SSD (fast access)
     + `/gs/bs/GROUP_NAME/`: HDD (fast access)
+* It is better to put symbolic link to your home (or any) directory: `ln -s /gs/bs/tga-your-groupname bs`
