@@ -90,6 +90,7 @@
     mpiexec.hydra -ppn 1 -n 1 ${PRG} >& stdout
     ```
 
+<<<<<<< Updated upstream
 * You need to specify the **resource type** from the following table. The list can be found in https://www.t4.gsic.titech.ac.jp/docs/handbook.ja/jobs/
 
 |  name   | #CPU | #GPU | Memory (GB) | Meaning         |
@@ -109,6 +110,13 @@
 
 * Write the "name" to the above jobscript of `#$ -l f_node=N`, where N is the number of the specified node type.
 
+<!--
+## Using booked node
+* You can book the nodes via TSUBAME portal.
+* With booked nodes (AR_ID should be given), you can submit jobs by
+`qsub -g [group_name] -ar [AR_ID] script.sh`.
+-->
+
 # Confirming jobs
 * To confirm your job status, type: `qstat`.
 * Job states
@@ -127,3 +135,4 @@
 * You need to pay **every months** these group disks if you want to keep the storage
 * You can check the usage of storage by `t4-user-info disk group -g YOUR_GROUP_NAME`
 * It is better to put symbolic link to your home (or any) directory: `ln -s /gs/bs/tga-your-groupname bs`
+
