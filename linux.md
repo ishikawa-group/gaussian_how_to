@@ -111,6 +111,7 @@
     * take: `scp login_node:directory your_local_directory`
         * e.g. getting Gaussian output file in TSUBAME to your local computer: `scp tsubame@/home/1/ABCD1234/gaussian/h2o.log ./`
 
-## submitting jobs
-* Edit your script file (e.g. `script.sh`) and execute `qsub -g your_group_name script.sh`.
+## submitting jobs (in TSUBAME)
+* Edit your script file (e.g. `script.sh`) and execute `qsub -g [your_group_name] script.sh`.
+* If you don't know the group name, ask your supervisor. It can be checked TSUBAME portal.
 * For details, see "tsubame.md" for details.

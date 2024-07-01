@@ -52,7 +52,7 @@
 ## Normal
 * You can execute your calculation as *jobs* to the supercomputer.
 * Supercomputer queuing system takes care of your (and also others') jobs.
-* To register your job, execute: `qsub -g [group_name] script.sh`
+* To register your job, execute: `qsub -g [your_group_name] script.sh`
     + If you don't specify the group name, the job will be a trial-run so it stops in 1 hour.
 * The `script.sh` file contains the procedure of your calculation.
 * Eexamples of scripts are as follows:
