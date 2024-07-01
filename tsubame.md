@@ -124,4 +124,5 @@
 * Users can purchase (from TSUBAME portal) the following strages for the group usage.
     + `/gs/fs/GROUP_NAME/`: SSD (fast access)
     + `/gs/bs/GROUP_NAME/`: HDD (fast access)
+* You need to pay **every months** these group disks if you want to keep the storage
 * It is better to put symbolic link to your home (or any) directory: `ln -s /gs/bs/tga-your-groupname bs`
