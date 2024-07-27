@@ -85,7 +85,7 @@
     module load intel
     module load intel-mpi
 
-    PRG="/home/1/uk02411/vasp/vasp.6.4.3/bin/vasp_std"
+    PRG="/your_home_directory/vasp/vasp.6.4.3/bin/vasp_std"
 
     mpiexec.hydra -ppn 1 -n 1 ${PRG} >& stdout
     ```
