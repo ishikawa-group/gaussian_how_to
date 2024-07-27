@@ -134,4 +134,3 @@
 * You need to pay **every months** these group disks if you want to keep the storage
 * You can check the usage of storage by `t4-user-info disk group -g YOUR_GROUP_NAME`
 * It is better to put symbolic link to your home (or any) directory: `ln -s /gs/bs/tga-your-groupname bs`
-
