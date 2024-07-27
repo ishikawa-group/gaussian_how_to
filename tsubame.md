@@ -90,7 +90,6 @@
     mpiexec.hydra -ppn 1 -n 1 ${PRG} >& stdout
     ```
 
-<<<<<<< Updated upstream
 * You need to specify the **resource type** from the following table. The list can be found in https://www.t4.gsic.titech.ac.jp/docs/handbook.ja/jobs/
 
 |  name   | #CPU | #GPU | Memory (GB) | Meaning         |
