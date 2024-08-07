@@ -14,11 +14,11 @@
 4. Copy the texts in the above public key file
 5. Back to the TSUBAME portal, and paste the copied text into the field of "SSH public key registration"
 6. Click "add"
-7. Go back to terminal, and you can login like `ssh [account_name]@login.t3.gsic.titech.ac.jp -i [private_key-file]`
+7. Go back to terminal, and you can login like `ssh [account_name]@login.t4.gsic.titech.ac.jp -i [private_key-file]`
 8. Setup the ssh configure file `~/.ssh/config` to make login easier. An example of minimal configuration is,
     ```bash
     Host tsubame
-        HostName login.t3.gsic.titech.ac.jp
+        HostName login.t4.gsic.titech.ac.jp
         User your_name
         IdentityFile /Users/your_name/.ssh/id_rsa_tsubame
     ```
