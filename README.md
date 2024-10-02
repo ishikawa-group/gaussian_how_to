@@ -8,12 +8,12 @@
 ## Lecture plans
 1st day(10/6): Introduction (both solid-state and molecular groups)
 
-2nd day(10/20): Linux basic ([file](./linux.md)) and Introduction to quantum chemistry ([file](./theory.md))
+2nd day(10/20): [Linux basic](./linux.md) and [Introduction to quantum chemistry](./theory.md)
 
-3rd day(10/31): Building input for energy calculation with Gaussian ([file](./energy.md))
+3rd day(10/31): [Building input for energy calculation with Gaussian](./energy.md)
 
-4th day(11/10): Geometry optimization, frequency analysis ([file](./optimization.md)), and transition state search ([file](./transition_state.md))
+4th day(11/10): [Geometry optimization, frequency analysis](./optimization.md), and [transition state search](./transition_state.md)
 
-5th day(11/17): Molecular dynamics ([file](./molecular_dynamics.md)) and excited state ([file](./excited_state.md))
+5th day(11/17): [Molecular dynamics](./molecular_dynamics.md) and [excited state](./excited_state.md)
 
 6th day(11/24): Free day
