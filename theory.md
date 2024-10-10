@@ -1,10 +1,10 @@
-## Why quantum chemistry?
+## Why quantum mechanics?
 * The behavior of the particles is governed by the equation of motion, and its classical mechanical version is known as Newton's law.
 * The proper description of atoms, molecules, and electrons is given by the laws of quantum mechanics. For this reason, we need to consider the **Schrödinger equation**, which is a quantum-mechanical equation of motion.
 * If the solutions of the Schrödinger equations are generated without reference to experimental data, the methods are usually called "ab initio" (Latin: "from the beginning") or "first principle".
 
 ## The Schrödinger equation
-* In chemistry or solid-state physics, the fundamental interaction we are interested in is the electrostatic interaction.
+* In chemistry, the fundamental interaction we are interested in is the electrostatic interaction.
 * Here we introduce three assumptions to the SE
     1. time-independent
     2. non-relativistic
