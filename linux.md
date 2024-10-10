@@ -30,7 +30,7 @@
 * To login the supercomputer from your environment, you need to use *ssh* so you have to set up it.
 
 ## ssh key generation
-* To make a ssh connection to remote environment, you need a *ssh-key*.
+* To make a ssh connection to remote environment, you need a *ssh key*.
 * There are two keys, a *public key* and  *private key*.
 * To generate these keys, execute `ssh-keygen` on your linux terminal.
 * You can set your passphrase if you like.
